@@ -62,8 +62,8 @@ This is a **WIP**! 🤫
     - [ ] Style the hero image
     - [ ] Style the main section
         - [ ] Style the first grid (last row is looooong)
-        - Style the main hero (break)
-        - Style the second grid
+        - [ ] Style the main hero (break)
+        - [ ] Style the second grid
     - [ ] Style the footer
 - [ ] Style for larger screens
 - [ ] Add the image hover transitions (move to js if necessary)
