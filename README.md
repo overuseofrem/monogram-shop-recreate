@@ -1,4 +1,4 @@
-# Backstage Talks website recreation (Frontend Practice)
+# Monogram shop recreation (Frontend Practice)
 
 A responsive front-end recreation of the [Monogram](https://monogramcc.com/shop/) website shop page. This is a self-directed challenge from [Frontend Practice](https://www.frontendpractice.com/projects/monogram).
 
