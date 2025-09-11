@@ -13,4 +13,12 @@
 /* Shared classes */
 @layer utilities {
 
+    /* Headers */
+    .hero-first {
+        @apply bg-[url(src/assets/images/gursimrat-ganda-RKtvvGwSjQo-unsplash.jpg)]
+    }
+    .hero-second {
+        @apply bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)];
+    }
+
 }

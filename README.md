@@ -37,8 +37,9 @@ The goal is to recerate the structure, appearance, and behavior of the **Monogra
 
 - [Frontend Practice](https://www.frontendpractice.com/projects/monogram) challenge site
 - The [Monogram Shop](https://monogramcc.com/shop/)
-- For images: [Pexels](https://www.pexels.com/) and [Unsplash](https://unsplash.com/)
-- For icons: [Boxicons](https://boxicons.com/)
+- For images: [Unsplash](https://unsplash.com/)
+- For product mockup images: [Mockup Free](https://mockupfree.net/)
+- For icons: [Boxicons](https://boxicons.com/) and [Flaticon](https://www.flaticon.com/)
 
 <br>
 
@@ -47,13 +48,13 @@ The goal is to recerate the structure, appearance, and behavior of the **Monogra
 This is a **WIP**! 🤫
 
 #### Page structure (HTML) 🏗️
-- [ ] Build the header
-- [ ] Build the hero image/section
-- [ ] Build the main section
-    - [ ] Build the first grid (featured)
-    - [ ] Build the main hero (break)
-    - [ ] Build the second grid (normal products)
-- [ ] Build the footer
+- [x] Build the header
+- [x] Build the hero image/section
+- [x] Build the main section
+    - [x] Build the first grid (featured)
+    - [x] Build the main hero (break)
+    - [x] Build the second grid (normal products)
+- [x] Build the footer
 
 #### Styling (Tailwind) 🎨
 - [ ] Mobile first
@@ -69,7 +70,8 @@ This is a **WIP**! 🤫
 - [ ] Add the image hover transitions (move to js if necessary)
 
 #### Javascript 🌚
-- [ ] Implement the mobile menu
+- [ ] Implement the mobile menu sidebar
+- [ ] Implement the cart sidebar
 
 #### Final stuff ✨
 - [ ] Final code cleanup and commenting
