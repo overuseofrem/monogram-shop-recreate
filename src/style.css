@@ -1,1 +1,16 @@
+/* Imports */
 @import 'tailwindcss';
+
+/* ===================== */
+
+/* Global styles */
+@theme {
+
+}
+
+/* ===================== */
+
+/* Shared classes */
+@layer utilities {
+
+}
