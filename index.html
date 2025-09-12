@@ -8,6 +8,9 @@
   </head>
   <body>
 
+    <!-- Background overlay for sidebars -->
+    <div id="sidebar-overlay" class="fixed z-40 inset-0 bg-black/50 opacity-0 invisible transition-opacity duration-400"></div>
+
     <!-- Fixed navigational top bar -->
     <nav class="flex justify-between items-center fixed top-2.5 left-2.5 right-2.5 pr-4 text-accent bg-primary sm:top-5 sm:left-5 sm:right-5">
 
@@ -45,7 +48,7 @@
         <div class="flex items-center gap-3">
 
           <!-- Hambuger menu for mobile; should be hidden on larer screens -->
-          <button class="xl:hidden">
+          <button id="open-menu-btn" class="xl:hidden">
             <img class="icon" src="src/assets/icons/menu.png" alt="hamburger menu">
           </button>
 
@@ -71,10 +74,11 @@
             </div>          
         </div>
       </div>
+
     </nav>
   
-    <!-- Fixed navigational top bar -->
-    <nav class="flex flex-col gap-5 absolute w-[28rem] h-full p-5 text-accent bg-primary">
+    <!-- Mobile menu sidenav -->
+    <nav id="sidebar" class="flex flex-col gap-5 z-50 fixed top-0 left-0 w-[28rem] h-full p-5 text-accent bg-primary  transform -translate-x-full transition-transform duration-300 ease-in-out">
 
       <div class="flex justify-between">
         <!-- [Left] Logo + Title -->
@@ -83,7 +87,10 @@
           <img class="w-16 hidden group-hover:block" src="src/assets/icons/grid-column-right-hover.png" alt="">
           <a href="#" class="title">MONOGRAM</a>
         </button>
-        <button>
+        
+        <!-- Close Button -->
+        <!-- Added id="close-menu-btn" -->
+        <button id="close-menu-btn">
           <img class="w-9 cursor-pointer" src="src/assets/icons/x.png" alt="close menu sidebar button">
         </button>    
       </div>
