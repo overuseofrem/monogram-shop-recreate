@@ -69,7 +69,9 @@
     /* Headings */
     .title {
         @apply
-            font-heading text-lg tracking-[0.12em];
+            font-heading text-lg tracking-[0.12em]
+            cursor-pointer
+            hover:text-hover;
     }
 
     /* Icons */
@@ -86,8 +88,31 @@
             pr-6
             text-accent 
             bg-primary
-            sm:top-5 sm:left-5 sm:right-5
-            ;
+            sm:top-5 sm:left-5 sm:right-5;
+    }
+
+    /* Links */
+    .nav-link {
+        @apply
+        font-light tracking-[0.12em]
+        hover:text-hover;
+    }
+    /* Dropdown triangles */
+    .link-dropdown {
+        @apply
+        after:ml-[.255em]
+        after:align-[.255em]
+        after:inline-block
+        after:h-0
+        after:w-0
+        after:content-['']
+        after:border-t-[.3em]
+        after:border-l-[.3em]
+        after:border-r-[.3em]
+        after:border-b-0
+        after:border-t-current
+        after:border-l-transparent
+        after:border-r-transparent;
     }
 
 }
