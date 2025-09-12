@@ -9,66 +9,67 @@
   <body class="">
 
     <!-- Fixed navigational top bar -->
-    <nav class="">
+    <nav class="nav-bar">
+
       <!-- [Left] Logo + Title -->
-      <button class="">
-        <img src="src/assets/icons/grid-column-right.png" alt="website logo">
-        <a href="" class="">MONOGRAM</a>
+      <button class="flex items-center gap-1">
+        <img class="w-16" src="src/assets/icons/grid-column-right.png" alt="website logo">
+        <a href="#" class="title">MONOGRAM</a>
       </button>
-      <div class="">
+
+      <div class="flex gap-4">
         <!-- Hambuger menu for mobile; should be hidden on larer screens -->
-        <button class="">
-          <img src="src/assets/icons/menu.png" alt="hamburger menu">
+        <button class="lg:hidden">
+          <img class="icon" src="src/assets/icons/menu.png" alt="hamburger menu">
         </button>
 
         <!-- Nav links -->
-        <a href="" class="">HOW IT WORKS</a>
-        
-        <!-- Workflow dropdown -->
-        <div class="">
-          <button class="">WORKFLOWS</button>
-          <!-- Dropdown menu -->
+        <div class="hidden items-center gap-10 lg:flex">
+          <a href="#" class="">HOW IT WORKS</a>
+          
+          <!-- Workflow dropdown -->
           <div class="">
-            <a href="" class="">AUDIO CONSOLE</a>
-            <a href="" class="">PHOTO CONSOLE</a>
-            <a href="" class="">VIDEO CONSOLE</a>
-            <a href="" class="">MINI CONSOLE</a>
+            <button class="">WORKFLOWS</button>
+            <!-- Dropdown menu -->
+            <div class="hidden">
+              <a href="" class="">AUDIO CONSOLE</a>
+              <a href="" class="">PHOTO CONSOLE</a>
+              <a href="" class="">VIDEO CONSOLE</a>
+              <a href="" class="">MINI CONSOLE</a>
+            </div>
           </div>
+          
+          <a href="#" class="">DOWNLOAD</a>
+          <a href="#" class="">BLOG</a>
+          <a href="#" class="">SUPPORT</a>
+          <a href="#" class="">SHOP</a>          
         </div>
-        
-        <a href="" class="">DOWNLOAD</a>
-        <a href="" class="">BLOG</a>
-        <a href="" class="">SUPPORT</a>
-        <a href="" class="">SHOP</a>
 
         <!-- Shopping icon -->
         <button class="">
-          <img src="src/assets/icons/shopping-bag.png" alt="shopping cart button">
+          <img class="w-10 cursor-pointer" src="src/assets/icons/shopping-bag.png" alt="shopping cart button">
         </button>
 
         <!-- Currency dropdown -->
-        <div>
           <button type="button" id="currency-dropdown-button">
-            <span>USD</span>
+            <span>$</span>
+            <span class="hidden">USD</span>
           </button>
           <!-- Dropdown menu -->
-          <div>
-            <div>
-              <a href="#">USD ($)</a>
-              <a href="#">CAD ($)</a>
-              <a href="#">EUR (€)</a>
-              <a href="#">AUD ($)</a>
-              <a href="#">GRP (£)</a>
-              <a href="#">KRW (₩)</a>
-              <a href="#">JPY (¥)</a>
-            </div>
+          <div class="hidden">
+            <a href="#">USD ($)</a>
+            <a href="#">CAD ($)</a>
+            <a href="#">EUR (€)</a>
+            <a href="#">AUD ($)</a>
+            <a href="#">GRP (£)</a>
+            <a href="#">KRW (₩)</a>
+            <a href="#">JPY (¥)</a>
           </div>
-        </div>
       </div>
     </nav>
   
     <!-- [HIDDEN] Mobile nav sidebar -->
-    <nav class="">
+    <nav class="hidden">
       <!-- [TOP] Logo + Title + Close -->
       <div class="">
         <!-- Logo + Button -->
@@ -107,7 +108,7 @@
     </nav>
 
     <!-- Shopping sidebar -->
-    <div class="">
+    <div class="hidden">
       <!-- [TOP] "< CONTINUE SHOPPING" -->
       <div class="">
         <button class="">

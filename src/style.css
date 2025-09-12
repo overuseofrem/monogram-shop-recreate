@@ -18,27 +18,76 @@
     /* Colors */
     --color-primary: #1a2456; /* Nav, product title, price */
     --color-background: #f0efed; /* Main background color (off-white) */
-    --color-accent: #ff8b68; /* Nav links, icons, hero text, footer text */
-    --color-flavortext: #080b1b; /* 'PRE-ORDER' text, dropdown item text */
+    --color-accent: #EFC2B3; /* Nav links, icons, hero text, footer text */
+    --color-hover: #E28F74; /* Hovered accent links */
+    --color-flavortext: #080b1b; /* Hovered primary links, 'PRE-ORDER' text, dropdown item text */
 
 }
 
 /* ===================== */
+
+/*
+|-------------------------------------------------------------------------------
+| Tailwind Class Order Cheat Sheet
+|-------------------------------------------------------------------------------
+|
+| 1.  Layout/Positioning: flex, grid, block, absolute, relative, z-index
+| 2.  Box Model: box-sizing, width, height, min/max
+| 3.  Spacing: margin (m-), padding (p-)
+| 4.  Typography: font, text, leading, tracking
+| 5.  Backgrounds: bg-color, bg-gradient
+| 6.  Borders/Effects: border, rounded, shadow, opacity
+| 7.  Interactivity: cursor, transition, transform
+| 8.  SVG: fill, stroke
+| 9.  States/Breakpoints: hover:, focus:, sm:, md:
+|
+*/
 
 /* Shared classes */
 @layer utilities {
 
     /* Body */
     body {
-        @apply m-0 p-0 box-border font-font text-base leading-normal min-h-screen;
+    @apply 
+        overflow-x-hidden
+        min-h-screen box-border
+        m-0 p-0 
+        font-font text-base leading-normal 
+        bg-background;
     }
 
     /* Headers */
     .hero-first {
-        @apply bg-[url(src/assets/images/gursimrat-ganda-RKtvvGwSjQo-unsplash.jpg)]
+        @apply 
+            bg-[url(src/assets/images/gursimrat-ganda-RKtvvGwSjQo-unsplash.jpg)]
     }
     .hero-second {
-        @apply bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)];
+        @apply 
+            bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)];
+    }
+
+    /* Headings */
+    .title {
+        @apply
+            font-heading text-lg tracking-[0.12em];
+    }
+
+    /* Icons */
+    .icon {
+        @apply
+            w-12
+            cursor-pointer;
+    }
+
+    /* Nav */
+    .nav-bar {
+        @apply 
+            flex justify-between items-center fixed top-2.5 left-2.5 right-2.5 
+            pr-6
+            text-accent 
+            bg-primary
+            sm:top-5 sm:left-5 sm:right-5
+            ;
     }
 
 }
