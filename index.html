@@ -6,54 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monogram | Shop - Recreate</title>
   </head>
-  <body class="">
+  <body>
+
+    <!-- Background overlay for sidebars -->
+    <div id="sidebar-overlay" class="fixed z-40 inset-0 bg-black/70 opacity-0 invisible transition-opacity duration-400"></div>
 
     <!-- Fixed navigational top bar -->
-    <nav class="">
+    <nav class="flex justify-between items-center fixed top-2.5 left-2.5 right-2.5 pr-4 text-accent bg-primary sm:top-5 sm:left-5 sm:right-5">
+
       <!-- [Left] Logo + Title -->
-      <button class="">
-        <img src="src/assets/icons/grid-column-right.png" alt="website logo">
-        <a href="" class="">MONOGRAM</a>
+      <button class="group title flex items-center gap-1">
+        <img class="w-16 block group-hover:hidden" src="src/assets/icons/grid-column-right.png" alt="website logo">
+        <img class="w-16 hidden group-hover:block" src="src/assets/icons/grid-column-right-hover.png" alt="">
+        <a href="#" class="title">MONOGRAM</a>
       </button>
-      <div class="">
-        <!-- Hambuger menu for mobile; should be hidden on larer screens -->
-        <button class="">
-          <img src="src/assets/icons/menu.png" alt="hamburger menu">
-        </button>
+
+      <div class="flex gap-9">
 
         <!-- Nav links -->
-        <a href="" class="">HOW IT WORKS</a>
-        
-        <!-- Workflow dropdown -->
-        <div class="">
-          <button class="">WORKFLOWS</button>
-          <!-- Dropdown menu -->
+        <div class="hidden items-center gap-10 xl:flex">
+          <a href="#" class="nav-link">HOW IT WORKS</a>
+          
+          <!-- Workflow dropdown -->
           <div class="">
-            <a href="" class="">AUDIO CONSOLE</a>
-            <a href="" class="">PHOTO CONSOLE</a>
-            <a href="" class="">VIDEO CONSOLE</a>
-            <a href="" class="">MINI CONSOLE</a>
+            <button class="nav-link link-dropdown">WORKFLOWS</button>
+            <!-- Dropdown menu -->
+            <div class="hidden">
+              <a href="" class="nav-link">AUDIO CONSOLE</a>
+              <a href="" class="nav-link">PHOTO CONSOLE</a>
+              <a href="" class="nav-link">VIDEO CONSOLE</a>
+              <a href="" class="nav-link">MINI CONSOLE</a>
+            </div>
           </div>
+          
+          <a href="#" class="nav-link">DOWNLOAD</a>
+          <a href="#" class="nav-link">BLOG</a>
+          <a href="#" class="nav-link">SUPPORT</a>
+          <a href="#" class="nav-link font-heading!">SHOP</a>          
         </div>
-        
-        <a href="" class="">DOWNLOAD</a>
-        <a href="" class="">BLOG</a>
-        <a href="" class="">SUPPORT</a>
-        <a href="" class="">SHOP</a>
 
-        <!-- Shopping icon -->
-        <button class="">
-          <img src="src/assets/icons/shopping-bag.png" alt="shopping cart button">
-        </button>
+        <div class="flex items-center gap-3">
 
-        <!-- Currency dropdown -->
-        <div>
-          <button type="button" id="currency-dropdown-button">
-            <span>USD</span>
+          <!-- Hambuger menu for mobile; should be hidden on larer screens -->
+          <button id="open-menu-btn" class="xl:hidden">
+            <img class="icon" src="src/assets/icons/menu.png" alt="hamburger menu">
           </button>
-          <!-- Dropdown menu -->
-          <div>
-            <div>
+
+          <!-- Shopping icon -->
+          <button class="">
+            <img class="w-10 cursor-pointer" src="src/assets/icons/shopping-bag.png" alt="shopping cart button">
+          </button>
+
+          <!-- Currency dropdown -->
+            <button type="button" id="currency-dropdown-button">
+              <span class="title sm:hidden">$</span>
+              <span class="title link-dropdown hidden sm:block xl:font-light!">USD</span>
+            </button>
+            <!-- Dropdown menu -->
+            <div class="hidden">
               <a href="#">USD ($)</a>
               <a href="#">CAD ($)</a>
               <a href="#">EUR (€)</a>
@@ -61,53 +71,54 @@
               <a href="#">GRP (£)</a>
               <a href="#">KRW (₩)</a>
               <a href="#">JPY (¥)</a>
-            </div>
-          </div>
+            </div>          
         </div>
       </div>
+
     </nav>
   
-    <!-- [HIDDEN] Mobile nav sidebar -->
-    <nav class="">
-      <!-- [TOP] Logo + Title + Close -->
-      <div class="">
-        <!-- Logo + Button -->
-        <button class="">
-          <img src="src/assets/icons/grid-column-right.png" alt="website logo">
-          <a href="" class="">MONOGRAM</a>
-        </button>
-        <!-- 'X' button -->
-        <button>
-          <img src="src/assets/icons/x.png" alt="close menu sidebar button">
-        </button>
-      </div>
+    <!-- Mobile menu sidenav -->
+    <nav id="sidebar" class="flex flex-col gap-12 z-50 fixed top-0 left-0 w-[28rem] h-full p-5 text-accent bg-primary  transform -translate-x-full transition-transform duration-300 ease-in-out">
 
-      <!-- Links -->
-      <div class="">
-
-        <!-- Nav links -->
-        <a href="" class="">HOW IT WORKS</a>
+      <div class="flex justify-between">
+        <!-- [Left] Logo + Title -->
+        <button class="group title flex items-center gap-1">
+          <img class="w-16 block group-hover:hidden" src="src/assets/icons/grid-column-right.png" alt="website logo">
+          <img class="w-16 hidden group-hover:block" src="src/assets/icons/grid-column-right-hover.png" alt="">
+          <a href="#" class="title">MONOGRAM</a>
+        </button>
         
-        <!-- Workflow 9NOT A DROPDOWN -->
-        <div class="">
-          <a class="">WORKFLOWS</a>
-          <div class="">
-            <a href="" class="">AUDIO CONSOLE</a>
-            <a href="" class="">PHOTO CONSOLE</a>
-            <a href="" class="">VIDEO CONSOLE</a>
-            <a href="" class="">MINI CONSOLE</a>
-          </div>
-        </div>
-
-        <a href="" class="">DOWNLOAD</a>
-        <a href="" class="">BLOG</a>
-        <a href="" class="">SUPPORT</a>
-        <a href="" class="">SHOP</a>
+        <!-- Close Button -->
+        <!-- Added id="close-menu-btn" -->
+        <button id="close-menu-btn">
+          <img class="w-9 cursor-pointer" src="src/assets/icons/x.png" alt="close menu sidebar button">
+        </button>    
       </div>
+
+      <!-- Nav links -->
+      <div class="flex flex-col items-center gap-5 pl-18 text-left xl:flex">
+        <a href="#" class="nav-link sidenav-link">HOW IT WORKS</a>
+        
+        <!-- Workflow dropdown -->
+        <button class="nav-link sidenav-link text-left">WORKFLOWS</button>
+        <!-- Dropdown menu -->
+        <div class="flex flex-col gap-5 w-full pl-10">
+          <a href="" class="nav-link sidenav-link">AUDIO CONSOLE</a>
+          <a href="" class="nav-link sidenav-link">PHOTO CONSOLE</a>
+          <a href="" class="nav-link sidenav-link">VIDEO CONSOLE</a>
+          <a href="" class="nav-link sidenav-link">MINI CONSOLE</a>
+        </div>
+        
+        <a href="#" class="nav-link sidenav-link">DOWNLOAD</a>
+        <a href="#" class="nav-link sidenav-link">BLOG</a>
+        <a href="#" class="nav-link sidenav-link">SUPPORT</a>
+        <a href="#" class="nav-link sidenav-link font-heading! border-0!">SHOP</a>          
+      </div>
+
     </nav>
 
     <!-- Shopping sidebar -->
-    <div class="">
+    <div class="hidden">
       <!-- [TOP] "< CONTINUE SHOPPING" -->
       <div class="">
         <button class="">
