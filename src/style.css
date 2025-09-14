@@ -16,7 +16,7 @@
     --font-weight-heading: 600; /* For headings, titles, selected-links */
 
     /* Colors */
-    --color-primary: #1a2456; /* Nav, product title, price */
+    --color-primary: #1A2456; /* Nav, product title, price */
     --color-background: #f0efed; /* Main background color (off-white) */
     --color-accent: #EFC2B3; /* Nav links, icons, hero text, footer text */
     --color-hover: #E28F74; /* Hovered accent links */
@@ -67,8 +67,10 @@
         bg-[url(src/assets/images/gursimrat-ganda-RKtvvGwSjQo-unsplash.jpg)];
     }
     .hero-second {
-        @apply 
-        bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)];
+        @apply
+        bg-cover bg-center bg-no-repeat
+        bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)]
+        lg:bg-[center_75%];
     }
 
     /* Headings */
