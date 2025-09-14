@@ -69,30 +69,23 @@
     /* Headings */
     .title {
         @apply
-            font-heading text-lg tracking-[0.12em]
+            font-heading text-sm tracking-[0.12em]
             cursor-pointer
             hover:text-hover;
-    }
-
-    /* Icons */
-    .icon {
-        @apply
-            w-12
-            cursor-pointer;
     }
 
     /* Links */
     .nav-link {
         @apply
-        font-light tracking-[0.12em]
+        font-light tracking-[0.12em] text-xs
         hover:text-hover;
     }
     /* Menu sidenav links */
     .sidenav-link {
         @apply
         w-full
-        pb-5
-        text-lg
+        pb-3
+        text-sm
         border-b-2 border-[#141c47];
     }
     /* Dropdown triangles */
