@@ -12,7 +12,7 @@
     <div id="sidebar-overlay" class="fixed z-40 inset-0 bg-black/70 opacity-0 invisible transition-opacity duration-400"></div>
 
     <!-- Fixed navigational top bar -->
-    <nav class="flex justify-between items-center fixed top-2.5 left-2.5 right-2.5 pr-4 text-accent bg-primary sm:top-3.5 sm:left-3.5 sm:right-3.5">
+    <nav class="flex justify-between items-center fixed z-40 top-1.5 left-1.5 right-1.5 pr-4 text-accent bg-primary sm:top-3.5 sm:left-3.5 sm:right-3.5">
 
       <!-- [Left] Logo + Title -->
       <button class="group title flex items-center gap-1">
@@ -78,7 +78,7 @@
     </nav>
   
     <!-- Mobile menu sidenav -->
-    <nav id="sidebar" class="flex flex-col gap-3 z-50 fixed top-0 left-0 min-w-[22rem] h-full p-2 text-accent bg-primary transform -translate-x-full transition-transform duration-300 ease-in-out  sm:p-5">
+    <nav id="sidebar" class="flex flex-col gap-3 z-50 fixed top-0 left-0 min-w-[22rem] h-full p-2 text-accent bg-primary transform -translate-x-full transition-transform duration-300 ease-in-out sm:p-5">
 
       <div class="flex justify-between">
         <!-- [Left] Logo + Title -->
@@ -141,19 +141,20 @@
       </div>
     </div>
 
-    <main class="">
+    <main>
       <!-- Hero (set background img) -->
-      <header class="hero-first">
-        <div class="">
-          <h1>A CONSOLE FOR EVERY WORKFLOW</h1>
-          <p>Discover the perfect console for yours.</p>          
-        </div>
-        <!-- Down icon button -->
-        <img src="src/assets/icons/chevron-down.png" alt="hero scroll down button">
+      <header class="hero-first flex flex-col justify-end items-center gap-11 h-[26rem] sm:h-[28rem] lg:gap-45 lg:h-[42rem]">
+          <div class="flex flex-col justify-center items-center gap-3.5 max-w-lg mx-auto px-[8%] text-accent text-center sm:px-[1%]">
+            <h1 class="hero-heading">A CONSOLE FOR EVERY WORKFLOW</h1>
+            <p class="subtitle">Discover the perfect console for yours.</p>          
+          </div>
+          <a href="#grid-featured">
+            <img class="w-24 pb-2 cursor-pointer transition duration-500 hover:scale-[1.3]" src="src/assets/icons/chevron-down.png" alt="hero scroll down button">          
+          </a>
       </header>
 
       <!-- First grid -->
-      <section class="">
+      <section id="grid-featured" class="hidden">
         
         <!-- Grid items -->
         <!-- Prod1-->
@@ -290,15 +291,15 @@
       </section>
 
       <!-- Mid-hero (set background image) -->
-      <section class="hero-second">
-        <div class="">
-          <h1>CREATE YOUR OWN CONSOLE</h1>
-          <p>Add-on to make it perfect.</p>          
+      <section class="hero-second flex flex-col gap-14 h-[19.6rem] sm:h-[21rem] lg:h-[31.5rem]">
+        <div class="flex flex-col justify-center items-center gap-3.5 max-w-sm mx-auto px-[8%] pt-11 text-primary text-center sm:px-0 sm:max-w-full ">
+          <h1 class="hero-heading">CREATE YOUR OWN CONSOLE</h1>
+          <p class="subtitle">Add-on to make it perfect.</p>          
         </div>
       </section>
 
       <!-- Second grid -->
-      <section class="">
+      <section class="hidden">
 
         <!-- Grid items -->
         <!-- Prod1-->

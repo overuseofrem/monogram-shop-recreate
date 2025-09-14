@@ -16,7 +16,7 @@
     --font-weight-heading: 600; /* For headings, titles, selected-links */
 
     /* Colors */
-    --color-primary: #1a2456; /* Nav, product title, price */
+    --color-primary: #1A2456; /* Nav, product title, price */
     --color-background: #f0efed; /* Main background color (off-white) */
     --color-accent: #EFC2B3; /* Nav links, icons, hero text, footer text */
     --color-hover: #E28F74; /* Hovered accent links */
@@ -46,7 +46,10 @@
 /* Shared classes */
 @layer utilities {
 
-    /* Body */
+    /* General */
+    html {
+        scroll-behavior: smooth;
+    }
     body {
     @apply 
         overflow-x-hidden
@@ -55,23 +58,41 @@
         font-font text-base leading-normal 
         bg-background;
     }
+    main {
+        @apply
+        w-full min-h-screen;
+    }
 
-    /* Headers */
+    /* Hero background images */
     .hero-first {
-        @apply 
-            bg-[url(src/assets/images/gursimrat-ganda-RKtvvGwSjQo-unsplash.jpg)]
+        @apply
+        bg-cover bg-center bg-no-repeat bg-black/70 bg-blend-darken
+        bg-[url(src/assets/images/pexels-cottonbro-10598788.jpg)];
     }
     .hero-second {
-        @apply 
-            bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)];
+        @apply
+        bg-cover bg-center bg-no-repeat
+        bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)]
+        lg:bg-[center_75%];
     }
 
     /* Headings */
     .title {
         @apply
-            font-heading text-sm tracking-[0.12em]
-            cursor-pointer
-            hover:text-hover;
+        font-heading text-sm tracking-[0.12em]
+        cursor-pointer
+        hover:text-hover;
+    }
+    .hero-heading {
+        @apply
+        font-heading tracking-wider leading-10
+        text-[2.2rem] sm:text-[2.3rem] lg:text-[2.5rem] lg:leading-11;
+    }
+    /* Hero subtitle */
+    .subtitle {
+        @apply
+        font-light 
+        sm:text-lg;
     }
 
     /* Links */
