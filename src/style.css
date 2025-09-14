@@ -47,6 +47,9 @@
 @layer utilities {
 
     /* General */
+    html {
+        scroll-behavior: smooth;
+    }
     body {
     @apply 
         overflow-x-hidden
@@ -63,8 +66,8 @@
     /* Hero background images */
     .hero-first {
         @apply
-        bg-cover bg-center bg-no-repeat bg-black/60 bg-blend-darken
-        bg-[url(src/assets/images/gursimrat-ganda-RKtvvGwSjQo-unsplash.jpg)];
+        bg-cover bg-center bg-no-repeat bg-black/70 bg-blend-darken
+        bg-[url(src/assets/images/pexels-cottonbro-10598788.jpg)];
     }
     .hero-second {
         @apply
@@ -83,13 +86,13 @@
     .hero-heading {
         @apply
         font-heading tracking-wider leading-10
-        text-[2.2rem] sm:text-[2.3rem] lg:text-[2.5rem];
+        text-[2.2rem] sm:text-[2.3rem] lg:text-[2.5rem] lg:leading-11;
     }
     /* Hero subtitle */
     .subtitle {
         @apply
         font-light 
-        sm:text-lg lg:text-xl;
+        sm:text-lg;
     }
 
     /* Links */
