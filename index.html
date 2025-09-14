@@ -12,7 +12,7 @@
     <div id="sidebar-overlay" class="fixed z-40 inset-0 bg-black/70 opacity-0 invisible transition-opacity duration-400"></div>
 
     <!-- Fixed navigational top bar -->
-    <nav class="flex justify-between items-center fixed top-2.5 left-2.5 right-2.5 pr-4 text-accent bg-primary sm:top-3.5 sm:left-3.5 sm:right-3.5">
+    <nav class="flex justify-between items-center fixed z-40 top-2.5 left-2.5 right-2.5 pr-4 text-accent bg-primary sm:top-3.5 sm:left-3.5 sm:right-3.5">
 
       <!-- [Left] Logo + Title -->
       <button class="group title flex items-center gap-1">
@@ -141,15 +141,14 @@
       </div>
     </div>
 
-    <main class="">
+    <main>
       <!-- Hero (set background img) -->
-      <header class="hero-first">
-        <div class="">
-          <h1>A CONSOLE FOR EVERY WORKFLOW</h1>
-          <p>Discover the perfect console for yours.</p>          
-        </div>
-        <!-- Down icon button -->
-        <img src="src/assets/icons/chevron-down.png" alt="hero scroll down button">
+      <header class="hero-first flex flex-col justify-end items-center gap-14 h-[26rem] sm:h-[28rem] lg:gap-45 lg:h-[42rem]">
+          <div class="flex flex-col justify-center items-center gap-3.5 max-w-lg mx-auto px-10 text-accent text-center ">
+            <h1 class="hero-heading">A CONSOLE FOR EVERY WORKFLOW</h1>
+            <p class="subtitle">Discover the perfect console for yours.</p>          
+          </div>
+          <img class="w-24 pb-2 cursor-pointer transition duration-200 hover:scale-[1.2]" src="src/assets/icons/chevron-down.png" alt="hero scroll down button">          
       </header>
 
       <!-- First grid -->

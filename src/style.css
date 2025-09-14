@@ -46,7 +46,7 @@
 /* Shared classes */
 @layer utilities {
 
-    /* Body */
+    /* General */
     body {
     @apply 
         overflow-x-hidden
@@ -55,23 +55,39 @@
         font-font text-base leading-normal 
         bg-background;
     }
+    main {
+        @apply
+        w-full min-h-screen;
+    }
 
-    /* Headers */
+    /* Hero background images */
     .hero-first {
-        @apply 
-            bg-[url(src/assets/images/gursimrat-ganda-RKtvvGwSjQo-unsplash.jpg)]
+        @apply
+        bg-cover bg-center bg-no-repeat bg-black/60 bg-blend-darken
+        bg-[url(src/assets/images/gursimrat-ganda-RKtvvGwSjQo-unsplash.jpg)];
     }
     .hero-second {
         @apply 
-            bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)];
+        bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)];
     }
 
     /* Headings */
     .title {
         @apply
-            font-heading text-sm tracking-[0.12em]
-            cursor-pointer
-            hover:text-hover;
+        font-heading text-sm tracking-[0.12em]
+        cursor-pointer
+        hover:text-hover;
+    }
+    .hero-heading {
+        @apply
+        font-heading tracking-wider leading-10
+        text-[2.2rem] sm:text-[2.3rem] lg:text-[2.5rem];
+    }
+    /* Hero subtitle */
+    .subtitle {
+        @apply
+        font-light 
+        sm:text-lg lg:text-xl;
     }
 
     /* Links */
