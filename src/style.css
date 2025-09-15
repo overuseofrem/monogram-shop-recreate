@@ -18,9 +18,13 @@
     /* Colors */
     --color-primary: #1A2456; /* Nav, product title, price */
     --color-background: #f0efed; /* Main background color (off-white) */
+    --color-ribbon: #FF8D6B; /* Pre-order text */
     --color-accent: #EFC2B3; /* Nav links, icons, hero text, footer text */
     --color-hover: #E28F74; /* Hovered accent links */
     --color-flavortext: #080b1b; /* Hovered primary links, 'PRE-ORDER' text, dropdown item text */
+
+    /* Breakpoints */
+    --breakpoint-grid: 70rem; /* ONLY for product grid when transitioning to cols-2! */
 
 }
 
@@ -46,7 +50,7 @@
 /* Shared classes */
 @layer utilities {
 
-    /* General */
+    /* ========== GENERAL ========== */
     html {
         scroll-behavior: smooth;
     }
@@ -63,7 +67,8 @@
         w-full min-h-screen;
     }
 
-    /* Hero background images */
+    /* ========== HERO ========== */
+    /* Hero images */
     .hero-first {
         @apply
         bg-cover bg-center bg-no-repeat bg-black/70 bg-blend-darken
@@ -75,8 +80,7 @@
         bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)]
         lg:bg-[center_75%];
     }
-
-    /* Headings */
+    /* Hero headings */
     .title {
         @apply
         font-heading text-sm tracking-[0.12em]
@@ -95,6 +99,7 @@
         sm:text-lg;
     }
 
+    /* ========== LINKS ========== */
     /* Links */
     .nav-link {
         @apply
@@ -125,6 +130,68 @@
         after:border-t-current
         after:border-l-transparent
         after:border-r-transparent;
+    }
+
+    /* ========== NAVIGATION ========== */
+    /* Navigational top bar */
+    .topnav {
+        @apply
+        flex justify-between items-center fixed z-40 
+        top-1.5 left-1.5 right-1.5 pr-4 
+        text-accent 
+        bg-primary 
+        sm:top-3.5 sm:left-3.5 sm:right-3.5;
+    }
+    /* Mobile menu sidenav */
+    .mobile-menu {
+        @apply
+        flex-col gap-3 z-50 fixed
+        top-0 left-0 min-w-[22rem] h-full p-2
+        text-accent 
+        bg-primary
+        transition-transform duration-300 ease-in-out
+        sm:p-5;
+    }
+    /* Overlay for mobile menu */
+    .overlay {
+        @apply
+        fixed z-40 
+        inset-0 
+        transition-opacity duration-400;
+    }
+
+    /* ========== PRDOUCTS ========== */
+    /* Product name */
+    h2 {
+        @apply
+        font-heading tracking-[0.12em]
+        sm:text-lg;
+    }
+    /* Pre-order ribbon */
+    .pre-order {
+        @apply
+        absolute z-30 
+        top-5 right-0 px-3.5 py-[5px] 
+        font-heading tracking-widest text-xs text-flavortext 
+        bg-ribbon;
+    }
+    /* Product description */
+    .prod-desc {
+        @apply
+        font-light text-xs
+        sm:text-sm;
+    }
+    .sold-out {
+        @apply
+        font-light text-sm text-gray-500;
+    }
+    /* Product image hover */
+    .image-hover {
+        @apply
+        absolute 
+        w-full top-0 left-0 
+        opacity-0 transition-opacity duration-300 
+        group-hover:opacity-100;
     }
 
 }
