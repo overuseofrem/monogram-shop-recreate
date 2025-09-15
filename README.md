@@ -57,20 +57,18 @@ This is a **WIP**! 🤫
 - [x] Build the footer
 
 #### Styling (Tailwind) 🎨
-- [ ] Mobile first
-    - [ ] Style the header
-        - [ ] Style the mobile menu
-    - [ ] Style the hero image
-    - [ ] Style the main section
-        - [ ] Style the first grid (last row is looooong)
-        - [ ] Style the main hero (break)
-        - [ ] Style the second grid
-    - [ ] Style the footer
-- [ ] Style for larger screens
+- [x] Style the header
+    - [x] Style the mobile menu
+- [x] Style the hero image
+- [ ] Style the main section
+    - [ ] Style the first grid (last row is looooong)
+    - [x] Style the main hero (break)
+    - [ ] Style the second grid
+- [ ] Style the footer
 - [ ] Add the image hover transitions (move to js if necessary)
 
 #### Javascript 🌚
-- [ ] Implement the mobile menu sidebar
+- [x] Implement the mobile menu sidebar
 - [ ] Implement the cart sidebar
 
 #### Final stuff ✨
