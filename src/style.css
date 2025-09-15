@@ -157,7 +157,32 @@
         transition-opacity duration-400;
     }
 
-    /* ========== PRDOUCT IMAGE HOVER ========== */
+    /* ========== PRDOUCTS ========== */
+    /* Product name */
+    h2 {
+        @apply
+        font-heading tracking-[0.12em]
+        sm:text-lg;
+    }
+    /* Pre-order ribbon */
+    .pre-order {
+        @apply
+        absolute z-30 
+        top-5 right-0 px-3.5 py-[5px] 
+        font-heading tracking-widest text-xs text-flavortext 
+        bg-ribbon;
+    }
+    /* Product description */
+    .prod-desc {
+        @apply
+        font-light text-xs
+        sm:text-sm;
+    }
+    .sold-out {
+        @apply
+        font-light text-sm text-gray-500;
+    }
+    /* Product image hover */
     .image-hover {
         @apply
         absolute 
