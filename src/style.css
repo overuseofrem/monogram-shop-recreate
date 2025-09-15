@@ -23,6 +23,9 @@
     --color-hover: #E28F74; /* Hovered accent links */
     --color-flavortext: #080b1b; /* Hovered primary links, 'PRE-ORDER' text, dropdown item text */
 
+    /* Breakpoints */
+    --breakpoint-grid: 70rem; /* ONLY for product grid when transitioning to cols-2! */
+
 }
 
 /* ===================== */
