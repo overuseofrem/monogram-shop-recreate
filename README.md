@@ -60,12 +60,12 @@ This is a **WIP**! 🤫
 - [x] Style the header
     - [x] Style the mobile menu
 - [x] Style the hero image
-- [ ] Style the main section
-    - [ ] Style the first grid (last row is looooong)
+- [x] Style the main section
+    - [x] Style the first grid (last row is looooong)
     - [x] Style the main hero (break)
-    - [ ] Style the second grid
-- [ ] Style the footer
-- [ ] Add the image hover transitions (move to js if necessary)
+    - [x] Style the second grid
+- [x] Style the footer
+- [x] Add the image hover transitions
 
 #### Javascript 🌚
 - [x] Implement the mobile menu sidebar
