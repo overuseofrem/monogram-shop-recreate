@@ -68,8 +68,10 @@
     }
     footer {
         @apply
+        px-5 pt-10 pb-20
         font-light text-sm text-accent
         bg-primary
+        sm:px-0
     }
 
     /* ========== HERO ========== */
@@ -202,7 +204,28 @@
     /* Footer */
     h4 {
         @apply
-        font-heading
+        mb-4
+        font-heading tracking-wider text-xs
+    }
+    footer p, a {
+        @apply
+        text-xs
+        sm:text-[13px]
+    }
+    footer a:hover {
+        @apply
+        text-hover underline
+    }
+    .footer-content {
+        @apply
+        grid grid-cols-2 gap-10
+        w-full
+        sm:grid-cols-3 sm:justify-center sm:px-[6%]
+        lg:flex lg:gap-14 xl:gap-25
+    }
+    .footer-item {
+        @apply
+        flex flex-col gap-2.5
     }
 
 }

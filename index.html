@@ -653,73 +653,80 @@
     </main>
 
     <footer>
-      <!-- MONOGRAM -->
-      <div class="">
-        <h4>MONOGRAM</h4>
-        <div class="">
-          <p>305 King St. W. Suite 502 Kitchener, ON Canada</p>
-        </div>
-      </div>
-      <!-- QUICK LINKS -->
-      <div class="">
-        <h4>QUICK LINKS</h4>
-        <div class="">
-          <a href="" class="">Home</a>
-          <a href="" class="">How It Works</a>
-          <a href="" class="">Shop</a>
-          <a href="" class="">Download</a>
-        </div>
-      </div>
-      <!-- HELP -->
-      <div class="">
-        <h4>HELP</h4>
-        <div class="">
-          <a href="" class="">FAQs</a>
-          <a href="" class="">Support Center</a>
-          <a href="" class="">Shipping and Sales</a>          
-        </div>
-      </div>
-      <!-- INFORMATION -->
-      <div class="">
-        <h4>INFORMATION</h4>
-          <a href="" class="">About Us</a>
-          <a href="" class="">Work with us</a>
-          <a href="" class="">Privacy Policy</a>
-          <a href="" class="">Terms of Use</a>
-          <a href="" class="">Terms of Sale</a>  
-          <a href="" class="">Press Kit</a>  
-      </div>
-      <!-- SUBSCRIBE -->
-      <div class="">
-        <h4>SUBCRIBE TO MONOGRAM</h4>
-        <div class="">
-          <p>Master productivity with Creative Console and get all the latest Monogram news.</p>
-          <form action="">
-            <input type="text" name="email">
-            <button class="px-6 py-[7px] font-heading tracking-widest text-xs text-primary bg-accent rounded-full cursor-pointer transition hover:bg-hover" type="submit">SUBMIT</button>
-          </form>
-          <!-- Socials -->
-          <div class="">
-            <!-- Instagram -->
-            <a>
-              <img class="w-8 cursor-pointer" src="src/assets/socials/instagram.png" alt="">
-            </a>
-            <!-- Twitter -->
-            <a>
-              <img class="w-8 cursor-pointer" src="src/assets/socials/twitter.png" alt="">
-            </a>
-            <!-- Facebook -->
-            <a>
-              <img class="w-8 cursor-pointer" src="src/assets/socials/facebook.png" alt="">
-            </a>
-            <!-- Youtube -->
-            <a>
-              <img class="w-8 cursor-pointer" src="src/assets/socials/youtube.png" alt="">
-            </a>
+      <div class="footer-content">
+        <!-- MONOGRAM -->
+        <div class="sm:order-1">
+          <h4>MONOGRAM</h4>
+          <div class="footer-item">
+            <p>305 King St. W. <br> Suite 502 <br> Kitchener, ON <br> Canada</p>
           </div>
-          <p>© Monogram 2025</p>
         </div>
+        <!-- QUICK LINKS -->
+        <div class="sm:order-3 lg:order-2">
+          <h4>QUICK LINKS</h4>
+          <div class="footer-item">
+            <a href="" class="">Home</a>
+            <a href="" class="">How It Works</a>
+            <a href="" class="">Shop</a>
+            <a href="" class="">Download</a>
+          </div>
+        </div>
+        <!-- HELP -->
+        <div class="sm:order-4 lg:order-3">
+          <h4>HELP</h4>
+          <div class="footer-item">
+            <a href="" class="">FAQs</a>
+            <a href="" class="">Support Center</a>
+            <a href="" class="">Shipping and Sales</a>          
+          </div>
+        </div>
+        <!-- INFORMATION -->
+        <div class="sm:order-5 lg:order-4">
+          <h4>INFORMATION</h4>
+            <div class="footer-item">
+              <a href="" class="">About Us</a>
+              <a href="" class="">Work with us</a>
+              <a href="" class="">Privacy Policy</a>
+              <a href="" class="">Terms of Use</a>
+              <a href="" class="">Terms of Sale</a>  
+              <a href="" class="">Press Kit</a>                
+            </div>
+        </div>
+        <!-- SUBSCRIBE -->
+        <div class="order-first col-span-2 w-96 sm:order-2 lg:order-5 lg:w-70 xl:w-86">
+          <h4>SUBCRIBE TO MONOGRAM</h4>
+          <div class="footer-item">
+            <p>Master productivity with Creative Console and get all the latest Monogram news.</p>
+            <form class="flex gap-3">
+              <input class="px-2 py-1 text-xs border-accent border-2" type="text" name="email" placeholder="Email Address">
+              <button class="w-fit px-6 py-[7px] font-heading tracking-widest text-xs text-primary bg-accent rounded-full cursor-pointer transition hover:bg-hover" type="submit">SUBMIT</button>
+            </form>
+            <!-- Socials -->
+            <div class="flex gap-2 mt-1">
+              <!-- Instagram -->
+              <a>
+                <img class="w-7 cursor-pointer" src="src/assets/socials/instagram.png" alt="">
+              </a>
+              <!-- Twitter -->
+              <a>
+                <img class="w-7 cursor-pointer" src="src/assets/socials/twitter.png" alt="">
+              </a>
+              <!-- Facebook -->
+              <a>
+                <img class="w-7 cursor-pointer" src="src/assets/socials/facebook.png" alt="">
+              </a>
+              <!-- Youtube -->
+              <a>
+                <img class="w-7 cursor-pointer" src="src/assets/socials/youtube.png" alt="">
+              </a>
+            </div>
+          </div>
+          <p class="hidden mt-6 sm:block">© Monogram 2025</p>  
+        </div>
+
+        <p class="order-last sm:hidden">© Monogram 2025</p>        
       </div>
+
     </footer>
 
     <script type="module" src="/src/main.js"></script>
