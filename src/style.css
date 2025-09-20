@@ -198,13 +198,27 @@
         @apply
         font-light text-sm text-gray-500;
     }
+    .prod-price {
+        @apply
+        font-light text-sm text-primary
+    }
     /* Product image hover */
     .image-hover {
         @apply
         absolute 
         w-full top-0 left-0 
-        opacity-0 transition-opacity duration-300 
+        opacity-0 transition-opacity 
         group-hover:opacity-100;
+    }
+    /* Product shop button */
+    .shop-btn {
+        @apply
+        absolute
+        w-max right-0 px-4 py-1.5
+        font-heading text-xs text-white
+        bg-primary rounded-full
+        opacity-0 transition-opacity
+        group-hover:opacity-100
     }
 
     /* Footer */
