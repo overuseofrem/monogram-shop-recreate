@@ -59,6 +59,7 @@ This is a **WIP**! 🤫
 #### Styling (Tailwind) 🎨
 - [x] Style the header
     - [x] Style the mobile menu
+    - [ ] Style the dropdowns
 - [x] Style the hero image
 - [x] Style the main section
     - [x] Style the first grid (last row is looooong)
@@ -70,6 +71,8 @@ This is a **WIP**! 🤫
 #### Javascript 🌚
 - [x] Implement the mobile menu sidebar
 - [ ] Implement the cart sidebar
+- [ ] Implement dropdowns
+- [ ] Implement currency changes
 
 #### Final stuff ✨
 - [ ] Final code cleanup and commenting
