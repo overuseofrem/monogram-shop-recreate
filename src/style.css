@@ -110,7 +110,7 @@
     /* Links */
     .nav-link {
         @apply
-        font-light tracking-[0.12em] text-xs
+        font-light tracking-[0.12rem] text-xs
         hover:text-hover;
     }
     /* Menu sidenav links */
@@ -122,7 +122,7 @@
         border-b-2 border-[#141c47];
     }
     /* Dropdown triangles */
-    .link-dropdown {
+    .dropdown-icon {
         @apply
         after:ml-[.255em]
         after:align-[.255em]
@@ -137,6 +137,12 @@
         after:border-t-current
         after:border-l-transparent
         after:border-r-transparent;
+    }
+    .dropdown-link {
+        @apply
+        px-6 py-1.5
+        font-light tracking-[0.15rem] text-sm text-flavortext whitespace-nowrap
+        hover:bg-gray-200
     }
 
     /* ========== NAVIGATION ========== */

@@ -28,14 +28,14 @@
           <a href="#" class="nav-link">HOW IT WORKS</a>
           
           <!-- Workflow dropdown -->
-          <div class="">
-            <button class="nav-link link-dropdown">WORKFLOWS</button>
+          <div class="relative">
+            <button id="workflow-open-dropdown" class="nav-link dropdown-icon hover:text-blue-100!">WORKFLOWS</button>
             <!-- Dropdown menu -->
-            <div class="hidden">
-              <a href="" class="nav-link">AUDIO CONSOLE</a>
-              <a href="" class="nav-link">PHOTO CONSOLE</a>
-              <a href="" class="nav-link">VIDEO CONSOLE</a>
-              <a href="" class="nav-link">MINI CONSOLE</a>
+            <div id="workflow-menu" class="hidden flex flex-col absolute mt-1.5 py-2 bg-white shadow-2xl/40">
+              <a href="" class="dropdown-link">AUDIO CONSOLE</a>
+              <a href="" class="dropdown-link">PHOTO CONSOLE</a>
+              <a href="" class="dropdown-link">VIDEO CONSOLE</a>
+              <a href="" class="dropdown-link">MINI CONSOLE</a>
             </div>
           </div>
           
@@ -59,18 +59,18 @@
 
           <!-- Currency dropdown -->
             <button type="button" id="currency-dropdown-button">
-              <span class="title link-dropdown sm:hidden">$</span>
-              <span class="title link-dropdown hidden sm:block lg:font-light!">USD</span>
+              <span class="title dropdown-icon sm:hidden hover:text-blue-100!">$</span>
+              <span class="title dropdown-icon hidden sm:block lg:font-light! hover:text-blue-100!">USD</span>
             </button>
             <!-- Dropdown menu -->
             <div class="hidden">
-              <a href="#">USD ($)</a>
-              <a href="#">CAD ($)</a>
-              <a href="#">EUR (€)</a>
-              <a href="#">AUD ($)</a>
-              <a href="#">GRP (£)</a>
-              <a href="#">KRW (₩)</a>
-              <a href="#">JPY (¥)</a>
+              <a href="#" class="dropdown-link">USD ($)</a>
+              <a href="#" class="dropdown-link">CAD ($)</a>
+              <a href="#" class="dropdown-link">EUR (€)</a>
+              <a href="#" class="dropdown-link">AUD ($)</a>
+              <a href="#" class="dropdown-link">GRP (£)</a>
+              <a href="#" class="dropdown-link">KRW (₩)</a>
+              <a href="#" class="dropdown-link">JPY (¥)</a>
             </div>          
         </div>
       </div>
