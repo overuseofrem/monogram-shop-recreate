@@ -140,6 +140,7 @@
     }
     .dropdown-link {
         @apply
+        w-full h-full
         px-6 py-1.5
         font-light tracking-[0.15rem] text-sm text-flavortext whitespace-nowrap
         hover:bg-gray-200
