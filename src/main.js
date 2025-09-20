@@ -61,3 +61,63 @@ document.addEventListener('click', (event) => {
     closeDropdown();
   }
 });
+
+// --- Currency Dropdown ---
+
+// 1. Get references to all the necessary HTML elements
+const currencyDropdownButton = document.getElementById('currency-dropdown-button');
+const currencyMenu = document.getElementById('currency-menu');
+const currencyLinks = currencyMenu.querySelectorAll('.dropdown-link');
+const currencySymbolSpan = document.getElementById('currency-symbol');
+const currencyCodeSpan = document.getElementById('currency-code');
+
+// Function to close the dropdown
+const closeCurrencyDropdown = () => {
+  currencyMenu.classList.add('hidden');
+}
+
+// 2. Add a click listener to the button to toggle the dropdown
+currencyDropdownButton.addEventListener('click', (event) => {
+  // Stop the click from bubbling up to the document
+  event.stopPropagation();
+  // Toggle the 'hidden' class to show/hide the menu
+  currencyMenu.classList.toggle('hidden');
+});
+
+// 3. Add a click listener to the whole document to close the menu
+document.addEventListener('click', (event) => {
+  // If the click is outside the menu AND outside the button, close it
+  if (!currencyMenu.contains(event.target) && !currencyDropdownButton.contains(event.target)) {
+    closeCurrencyDropdown();
+  }
+});
+
+// 4. Loop through each currency link and add a click listener
+currencyLinks.forEach(link => {
+  link.addEventListener('click', (event) => {
+    // Prevent the link from navigating away (the default <a> tag behavior)
+    event.preventDefault();
+
+    const selectedLink = event.currentTarget;
+
+    // --- Update the Button Text ---
+    const selectedText = selectedLink.textContent; // e.g., "CAD ($)"
+    const newCode = selectedText.split(' ')[0];    // "CAD"
+    const newSymbol = selectedLink.dataset.symbol; // Gets the symbol from our data attribute
+
+    currencySymbolSpan.textContent = newSymbol;
+    currencyCodeSpan.textContent = newCode;
+
+    // --- Update Active Classes ---
+    // First, remove the active classes from ALL links
+    currencyLinks.forEach(l => {
+      l.classList.remove('text-white!', 'bg-primary!');
+    });
+
+    // Then, add the active classes to ONLY the one that was clicked
+    selectedLink.classList.add('text-white!', 'bg-primary!');
+
+    // Finally, close the dropdown after making a selection
+    closeCurrencyDropdown();
+  });
+});
