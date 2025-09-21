@@ -63,7 +63,7 @@ document.addEventListener('click', (event) => {
 
 
 // =================================================================================
-// --- 3. CURRENCY DROPDOWN & CONVERSION ---
+// --- 3. CURRENCY DROPDOWN & CONVERSION (UPDATED) ---
 // =================================================================================
 
 // --- Element References ---
@@ -79,41 +79,48 @@ let exchangeRates = {}; // To store the fetched exchange rates
 
 // --- API Function ---
 const fetchExchangeRates = async () => {
-  // Using a free, no-key-required API for exchange rates
   const apiUrl = 'https://open.er-api.com/v6/latest/USD';
   try {
     const response = await fetch(apiUrl);
     if (!response.ok) throw new Error('Failed to fetch exchange rates');
     const data = await response.json();
     exchangeRates = data.rates;
-    console.log('Exchange rates loaded successfully!', exchangeRates);
+    console.log('Exchange rates loaded successfully!');
+    // **UPDATED**: Set initial prices to USD with the '$' symbol on page load
+    updatePrices('USD', '$');
   } catch (error) {
     console.error('Error fetching exchange rates:', error);
-    // Provide fallback rates in case the API fails
-    exchangeRates = { 'USD': 1.0, 'EUR': 0.9, 'JPY': 145, 'CAD': 1.35, 'GBP': 0.8 };
+    // Using more current fallback rates
+    exchangeRates = { 'USD': 1.0, 'EUR': 0.92, 'JPY': 157, 'CAD': 1.37, 'GBP': 0.79 };
+    // **UPDATED**: Still set initial prices even if API fails
+    updatePrices('USD', '$');
   }
 };
 
-// --- Price Update Function ---
-const updatePrices = (newCurrency) => {
-  if (!exchangeRates[newCurrency]) {
-    console.error(`Exchange rate for ${newCurrency} not found.`);
+// --- Price Update Function (UPDATED) ---
+const updatePrices = (newCurrencyCode, newCurrencySymbol) => {
+  // Assuming you meant GBP (Great British Pound) instead of GRP
+  const currencyCode = newCurrencyCode === 'GRP' ? 'GBP' : newCurrencyCode;
+
+  if (!exchangeRates[currencyCode]) {
+    console.error(`Exchange rate for ${currencyCode} not found.`);
     return;
   }
 
-  const rate = exchangeRates[newCurrency];
+  const rate = exchangeRates[currencyCode];
 
   priceElements.forEach(span => {
     const basePriceUSD = parseFloat(span.dataset.priceUsd);
     if (!isNaN(basePriceUSD)) {
-      const convertedPrice = (basePriceUSD * rate).toFixed(0); // Using toFixed(0) for whole numbers
-      span.textContent = convertedPrice;
+      const convertedPrice = (basePriceUSD * rate).toFixed(0);
+      // **UPDATED**: Add the currency symbol before the price
+      span.textContent = `${newCurrencySymbol}${convertedPrice}`;
     }
   });
 };
 
 
-// --- Dropdown Logic ---
+// --- Dropdown Logic (UPDATED) ---
 const closeCurrencyDropdown = () => {
   currencyMenu.classList.add('hidden');
 };
@@ -134,7 +141,6 @@ currencyLinks.forEach(link => {
     event.preventDefault();
     const selectedLink = event.currentTarget;
 
-    // --- Get New Currency Info ---
     const newCode = selectedLink.textContent.split(' ')[0];
     const newSymbol = selectedLink.dataset.symbol;
 
@@ -142,8 +148,8 @@ currencyLinks.forEach(link => {
     currencySymbolSpan.textContent = newSymbol;
     currencyCodeSpan.textContent = newCode;
     
-    // --- 2. Update Prices ---
-    updatePrices(newCode);
+    // --- 2. Update Prices (UPDATED with symbol) ---
+    updatePrices(newCode, newSymbol);
 
     // --- 3. Update Active Classes ---
     currencyLinks.forEach(l => l.classList.remove('text-white!', 'bg-primary!'));
@@ -155,5 +161,5 @@ currencyLinks.forEach(link => {
 });
 
 // --- Initial Fetch ---
-// Fetch rates when the page loads
+// Fetch rates and format initial prices when the page loads
 fetchExchangeRates();
