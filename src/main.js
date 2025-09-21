@@ -1,6 +1,8 @@
 import './style.css'
 
-// --- Open sidebar nav menu ---
+// =================================================================================
+// --- 1. SIDEBAR NAVIGATION ---
+// =================================================================================
 const sidebar = document.getElementById('sidebar');
 const openMenuBtn = document.getElementById('open-menu-btn');
 const closeMenuBtn = document.getElementById('close-menu-btn');
@@ -9,115 +11,149 @@ const sidebarOverlay = document.getElementById('sidebar-overlay');
 const openSidebar = () => {
   sidebar.classList.remove('-translate-x-full');
   document.body.classList.add('overflow-hidden');
-  sidebarOverlay.classList.remove('invisible');
-  sidebarOverlay.classList.remove('opacity-0');
+  sidebarOverlay.classList.remove('invisible', 'opacity-0');
 };
-const closeSidebar = () => {
-  // 1. Start the animations immediately
-  sidebar.classList.add('-translate-x-full'); // Start sidebar slide-out
-  sidebarOverlay.classList.add('opacity-0'); // Start overlay fade-out
-  document.body.classList.remove('overflow-hidden'); // Re-enable scrolling
 
-  // 2. Wait for the animations to finish, THEN hide the overlay
+const closeSidebar = () => {
+  sidebar.classList.add('-translate-x-full');
+  sidebarOverlay.classList.add('opacity-0');
+  document.body.classList.remove('overflow-hidden');
   setTimeout(() => {
     sidebarOverlay.classList.add('invisible');
-  }, 400); // IMPORTANT: Must match CSS
+  }, 400); // Must match CSS transition duration
 };
-// Event listeners remain the same
+
 openMenuBtn.addEventListener('click', openSidebar);
 closeMenuBtn.addEventListener('click', closeSidebar);
 sidebarOverlay.addEventListener('click', closeSidebar);
 
-// -- Dropdown --
+
+// =================================================================================
+// --- 2. WORKFLOW DROPDOWN ---
+// =================================================================================
 const workflowDropdown = document.getElementById('workflow-open-dropdown');
 const workflowMenu = document.getElementById('workflow-menu');
 
 const openDropdown = () => {
   workflowMenu.classList.remove('hidden');
-  workflowDropdown.classList.remove('hover:text-blue-100!');
   workflowDropdown.classList.add('text-white!');
-}
+  workflowDropdown.classList.remove('hover:text-blue-100!');
+};
+
 const closeDropdown = () => {
   workflowMenu.classList.add('hidden');
-  workflowDropdown.classList.add('hover:text-blue-100!');
   workflowDropdown.classList.remove('text-white!');
-}
+  workflowDropdown.classList.add('hover:text-blue-100!');
+};
 
 workflowDropdown.addEventListener('click', (event) => {
-  event.stopPropagation(); // Prevent the document click listener from firing immediately
-
-  // Check if the menu is currently hidden (closed)
+  event.stopPropagation();
   if (workflowMenu.classList.contains('hidden')) {
-    openDropdown(); // If closed, open it
+    openDropdown();
   } else {
-    closeDropdown(); // If open, close it
+    closeDropdown();
   }
 });
 
 document.addEventListener('click', (event) => {
-  // If the clicked element is not inside the workflowMenu, close the dropdown
-  // We no longer need to check for workflowDropdown here, as its click handler handles its toggle
   if (!workflowMenu.contains(event.target)) {
     closeDropdown();
   }
 });
 
-// --- Currency Dropdown ---
 
-// 1. Get references to all the necessary HTML elements
+// =================================================================================
+// --- 3. CURRENCY DROPDOWN & CONVERSION (FINAL) ---
+// =================================================================================
+
+// --- Element References ---
 const currencyDropdownButton = document.getElementById('currency-dropdown-button');
 const currencyMenu = document.getElementById('currency-menu');
 const currencyLinks = currencyMenu.querySelectorAll('.dropdown-link');
 const currencySymbolSpan = document.getElementById('currency-symbol');
 const currencyCodeSpan = document.getElementById('currency-code');
+const priceElements = document.querySelectorAll('.prod-price');
 
-// Function to close the dropdown
+// --- State Variables ---
+let exchangeRates = {}; // To store the fetched exchange rates
+
+// --- API Function ---
+const fetchExchangeRates = async () => {
+  const apiUrl = 'https://open.er-api.com/v6/latest/USD';
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) throw new Error('Failed to fetch exchange rates');
+    const data = await response.json();
+    exchangeRates = data.rates;
+    console.log('Exchange rates loaded successfully!');
+    updatePrices('USD', '$'); // Set initial prices to USD
+  } catch (error) {
+    console.error('Error fetching exchange rates:', error);
+    // Using fallback rates
+    exchangeRates = { 'USD': 1.0, 'EUR': 0.92, 'JPY': 157, 'CAD': 1.37, 'GBP': 0.79 };
+    updatePrices('USD', '$'); // Still set initial prices even if API fails
+  }
+};
+
+// --- Price Update Function ---
+const updatePrices = (currencyCode, currencySymbol) => {
+  if (!exchangeRates[currencyCode]) {
+    console.error(`Exchange rate for ${currencyCode} not found.`);
+    return;
+  }
+
+  const rate = exchangeRates[currencyCode];
+
+  priceElements.forEach(span => {
+    const basePriceUSD = parseFloat(span.dataset.priceUsd);
+    if (!isNaN(basePriceUSD)) {
+      const convertedPrice = (basePriceUSD * rate).toFixed(0);
+      span.textContent = `${currencySymbol}${convertedPrice}`;
+    }
+  });
+};
+
+
+// --- Dropdown Logic ---
 const closeCurrencyDropdown = () => {
   currencyMenu.classList.add('hidden');
-}
+};
 
-// 2. Add a click listener to the button to toggle the dropdown
 currencyDropdownButton.addEventListener('click', (event) => {
-  // Stop the click from bubbling up to the document
   event.stopPropagation();
-  // Toggle the 'hidden' class to show/hide the menu
   currencyMenu.classList.toggle('hidden');
 });
 
-// 3. Add a click listener to the whole document to close the menu
 document.addEventListener('click', (event) => {
-  // If the click is outside the menu AND outside the button, close it
   if (!currencyMenu.contains(event.target) && !currencyDropdownButton.contains(event.target)) {
     closeCurrencyDropdown();
   }
 });
 
-// 4. Loop through each currency link and add a click listener
 currencyLinks.forEach(link => {
   link.addEventListener('click', (event) => {
-    // Prevent the link from navigating away (the default <a> tag behavior)
     event.preventDefault();
-
     const selectedLink = event.currentTarget;
 
-    // --- Update the Button Text ---
-    const selectedText = selectedLink.textContent; // e.g., "CAD ($)"
-    const newCode = selectedText.split(' ')[0];    // "CAD"
-    const newSymbol = selectedLink.dataset.symbol; // Gets the symbol from our data attribute
+    const newCode = selectedLink.textContent.split(' ')[0];
+    const newSymbol = selectedLink.dataset.symbol;
 
+    // --- 1. Update the Button Text ---
     currencySymbolSpan.textContent = newSymbol;
     currencyCodeSpan.textContent = newCode;
+    
+    // --- 2. Update Prices ---
+    updatePrices(newCode, newSymbol);
 
-    // --- Update Active Classes ---
-    // First, remove the active classes from ALL links
-    currencyLinks.forEach(l => {
-      l.classList.remove('text-white!', 'bg-primary!');
-    });
-
-    // Then, add the active classes to ONLY the one that was clicked
+    // --- 3. Update Active Classes ---
+    currencyLinks.forEach(l => l.classList.remove('text-white!', 'bg-primary!'));
     selectedLink.classList.add('text-white!', 'bg-primary!');
 
-    // Finally, close the dropdown after making a selection
+    // --- 4. Close Dropdown ---
     closeCurrencyDropdown();
   });
 });
+
+// --- Initial Fetch ---
+// Fetch rates and format initial prices when the page loads
+fetchExchangeRates();
