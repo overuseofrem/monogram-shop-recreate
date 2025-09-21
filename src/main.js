@@ -63,7 +63,7 @@ document.addEventListener('click', (event) => {
 
 
 // =================================================================================
-// --- 3. CURRENCY DROPDOWN & CONVERSION (UPDATED) ---
+// --- 3. CURRENCY DROPDOWN & CONVERSION (FINAL) ---
 // =================================================================================
 
 // --- Element References ---
@@ -86,22 +86,17 @@ const fetchExchangeRates = async () => {
     const data = await response.json();
     exchangeRates = data.rates;
     console.log('Exchange rates loaded successfully!');
-    // **UPDATED**: Set initial prices to USD with the '$' symbol on page load
-    updatePrices('USD', '$');
+    updatePrices('USD', '$'); // Set initial prices to USD
   } catch (error) {
     console.error('Error fetching exchange rates:', error);
-    // Using more current fallback rates
+    // Using fallback rates
     exchangeRates = { 'USD': 1.0, 'EUR': 0.92, 'JPY': 157, 'CAD': 1.37, 'GBP': 0.79 };
-    // **UPDATED**: Still set initial prices even if API fails
-    updatePrices('USD', '$');
+    updatePrices('USD', '$'); // Still set initial prices even if API fails
   }
 };
 
-// --- Price Update Function (UPDATED) ---
-const updatePrices = (newCurrencyCode, newCurrencySymbol) => {
-  // Assuming you meant GBP (Great British Pound) instead of GRP
-  const currencyCode = newCurrencyCode === 'GRP' ? 'GBP' : newCurrencyCode;
-
+// --- Price Update Function ---
+const updatePrices = (currencyCode, currencySymbol) => {
   if (!exchangeRates[currencyCode]) {
     console.error(`Exchange rate for ${currencyCode} not found.`);
     return;
@@ -113,14 +108,13 @@ const updatePrices = (newCurrencyCode, newCurrencySymbol) => {
     const basePriceUSD = parseFloat(span.dataset.priceUsd);
     if (!isNaN(basePriceUSD)) {
       const convertedPrice = (basePriceUSD * rate).toFixed(0);
-      // **UPDATED**: Add the currency symbol before the price
-      span.textContent = `${newCurrencySymbol}${convertedPrice}`;
+      span.textContent = `${currencySymbol}${convertedPrice}`;
     }
   });
 };
 
 
-// --- Dropdown Logic (UPDATED) ---
+// --- Dropdown Logic ---
 const closeCurrencyDropdown = () => {
   currencyMenu.classList.add('hidden');
 };
@@ -148,7 +142,7 @@ currencyLinks.forEach(link => {
     currencySymbolSpan.textContent = newSymbol;
     currencyCodeSpan.textContent = newCode;
     
-    // --- 2. Update Prices (UPDATED with symbol) ---
+    // --- 2. Update Prices ---
     updatePrices(newCode, newSymbol);
 
     // --- 3. Update Active Classes ---
