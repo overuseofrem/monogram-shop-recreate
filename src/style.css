@@ -201,7 +201,7 @@
     }
     .prod-price {
         @apply
-        font-light text-sm text-primary
+        font-light text-[15px] text-primary
     }
     /* Product image hover */
     .image-hover {
