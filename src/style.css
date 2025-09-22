@@ -222,6 +222,21 @@
         group-hover:opacity-100
     }
 
+    /* ========== SHOP SIDEBAR ========== */
+    .shopping-sidebar {
+        @apply
+        flex flex-col justify-between fixed z-50
+        min-w-[22rem] h-full right-0
+        text-white
+        bg-white
+    }
+    .shop-topping {
+        @apply
+        px-2 py-5
+        bg-primary
+    }
+
+    /* ========== FOOTER ========== */
     /* Footer */
     h4 {
         @apply
