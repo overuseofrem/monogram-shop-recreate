@@ -1,31 +1,58 @@
 import './style.css'
 
 // =================================================================================
-// --- 1. SIDEBAR NAVIGATION ---
+// --- 1. GENERIC SIDEBAR NAVIGATION ---
 // =================================================================================
-const sidebar = document.getElementById('sidebar');
-const openMenuBtn = document.getElementById('open-menu-btn');
-const closeMenuBtn = document.getElementById('close-menu-btn');
 const sidebarOverlay = document.getElementById('sidebar-overlay');
 
-const openSidebar = () => {
-  sidebar.classList.remove('-translate-x-full');
-  document.body.classList.add('overflow-hidden');
-  sidebarOverlay.classList.remove('invisible', 'opacity-0');
+const openSidebar = (sidebarElement) => {
+  if (sidebarElement) {
+    if (sidebarElement.id === 'shopping-cart') {
+      sidebarElement.classList.remove('translate-x-full');
+    } else {
+      sidebarElement.classList.remove('-translate-x-full');
+    }
+    document.body.classList.add('overflow-hidden');
+    sidebarOverlay.classList.remove('invisible', 'opacity-0');
+  }
 };
 
-const closeSidebar = () => {
-  sidebar.classList.add('-translate-x-full');
-  sidebarOverlay.classList.add('opacity-0');
-  document.body.classList.remove('overflow-hidden');
-  setTimeout(() => {
-    sidebarOverlay.classList.add('invisible');
-  }, 400); // Must match CSS transition duration
+const closeSidebar = (sidebarElement) => {
+  if (sidebarElement) {
+    if (sidebarElement.id === 'shopping-cart') {
+      sidebarElement.classList.add('translate-x-full');
+    } else {
+      sidebarElement.classList.add('-translate-x-full');
+    }
+    sidebarOverlay.classList.add('opacity-0');
+    document.body.classList.remove('overflow-hidden');
+    setTimeout(() => {
+      sidebarOverlay.classList.add('invisible');
+    }, 400); // Must match CSS transition duration
+  }
 };
 
-openMenuBtn.addEventListener('click', openSidebar);
-closeMenuBtn.addEventListener('click', closeSidebar);
-sidebarOverlay.addEventListener('click', closeSidebar);
+// --- Mobile Menu ---
+const mobileMenu = document.getElementById('sidebar');
+const openMenuBtn = document.getElementById('open-menu-btn');
+const closeMenuBtn = document.getElementById('close-menu-btn');
+
+openMenuBtn.addEventListener('click', () => openSidebar(mobileMenu));
+closeMenuBtn.addEventListener('click', () => closeSidebar(mobileMenu));
+
+// --- Shopping Cart ---
+const shoppingCart = document.getElementById('shopping-cart');
+const openCartBtn = document.getElementById('open-cart-btn');
+const closeCartBtn = document.getElementById('close-cart-btn');
+
+openCartBtn.addEventListener('click', () => openSidebar(shoppingCart));
+closeCartBtn.addEventListener('click', () => closeSidebar(shoppingCart));
+
+// --- Overlay to close any open sidebar ---
+sidebarOverlay.addEventListener('click', () => {
+    closeSidebar(mobileMenu);
+    closeSidebar(shoppingCart);
+});
 
 
 // =================================================================================
