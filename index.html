@@ -8,26 +8,24 @@
   </head>
   <body>
 
-    <!-- Background overlay for sidebars -->
+    <!-- Background overlay for both mobile menu and shopping cart sidebars -->
     <div id="sidebar-overlay" class="overlay invisible bg-black/70 opacity-0 "></div>
 
-    <!-- Fixed navigational top bar -->
+    <!-- Fixed navigation bar at top of page -->
     <nav class="flex justify-between items-center fixed z-40 top-1.5 left-1.5 right-1.5 pr-4 text-accent bg-primary sm:top-3.5 sm:left-3.5 sm:right-3.5">
-
-      <!-- [Left] Logo + Title -->
+      <!-- Left side: Logo and brand title -->
       <button class="group title flex items-center gap-1">
         <img class="w-[52px] block group-hover:hidden" src="src/assets/icons/grid-column-right.png" alt="website logo">
         <img class="w-[52px] hidden group-hover:block" src="src/assets/icons/grid-column-right-hover.png" alt="">
         <a href="#" class="title">MONOGRAM</a>
       </button>
-
+      <!-- Right side: Navigation links and controls -->
       <div class="flex gap-6">
-
-        <!-- Nav links -->
+        <!-- Desktop navigation links (hidden on mobile) -->
         <div class="hidden items-center gap-7 lg:flex">
           <a href="#" class="nav-link">HOW IT WORKS</a>
           
-          <!-- Workflow dropdown -->
+          <!-- Workflow dropdown menu -->
           <div class="relative">
             <button id="workflow-open-dropdown" class="nav-link dropdown-icon hover:text-blue-100!">WORKFLOWS</button>
             <!-- Dropdown menu -->
@@ -45,28 +43,28 @@
           <a href="#" class="nav-link font-heading!">SHOP</a>          
         </div>
 
+        <!-- Controls: hamburger menu, shopping cart, currency selector -->
         <div class="flex items-center gap-3">
-
-          <!-- Hambuger menu for mobile; should be hidden on larer screens -->
+          <!-- Mobile hamburger menu button (hidden on desktop) -->
           <button id="open-menu-btn" class="lg:hidden">
             <img class="w-9 cursor-pointer" src="src/assets/icons/menu.png" alt="hamburger menu">
           </button>
 
-          <!-- Shopping icon -->
+          <!-- Shopping cart button -->
           <button id="open-cart-btn">
             <img class="w-8 cursor-pointer" src="src/assets/icons/shopping-bag.png" alt="shopping cart button">
           </button>
 
-          <!-- Add a relative container for positioning the absolute dropdown -->
+          <!-- Currency selector dropdown -->
           <div class="relative">
-            <!-- Currency dropdown button -->
+            <!-- Mobile: show symbol only, Desktop: show currency code -->
             <button type="button" id="currency-dropdown-button">
               <!-- These spans will be updated by JavaScript -->
               <span id="currency-symbol" class="title dropdown-icon sm:hidden lg:hover:text-blue-100!">$</span>
               <span id="currency-code" class="title dropdown-icon hidden sm:block lg:font-light! lg:hover:text-blue-100!">USD</span>
             </button>
 
-            <!-- Dropdown menu - ADD 'hidden' class to start -->
+            <!-- Currency dropdown menu -->
             <div id="currency-menu" class="hidden flex flex-col justify-center items-center absolute top-8 right-2 py-2 bg-white shadow-2xl/40">
               <a href="#" class="dropdown-link px-5! text-white! bg-primary!" data-symbol="$">USD ($)</a>
               <a href="#" class="dropdown-link px-5!" data-symbol="$">CAD ($)</a>
@@ -77,37 +75,32 @@
               <a href="#" class="dropdown-link px-5!" data-symbol="¥">JPY (¥)</a>
             </div>
           </div>
-
         </div>
       </div>
-
     </nav>
   
-    <!-- Mobile menu sidenav -->
+    <!-- Mobile navigation sidebar (slides in from left) -->
     <nav id="sidebar" class="mobile-menu flex transform -translate-x-full">
-
+      <!-- Sidebar header with logo and close button -->
       <div class="flex justify-between">
-        <!-- [Left] Logo + Title -->
         <button class="group title flex items-center gap-1">
           <img class="w-12 block group-hover:hidden" src="src/assets/icons/grid-column-right.png" alt="website logo">
           <img class="w-12 hidden group-hover:block" src="src/assets/icons/grid-column-right-hover.png" alt="">
           <a href="#" class="title">MONOGRAM</a>
         </button>
         
-        <!-- Close Button -->
-        <!-- Added id="close-menu-btn" -->
+        <!-- Close sidebar button -->
         <button id="close-menu-btn">
           <img class="w-7 cursor-pointer" src="src/assets/icons/x.png" alt="close menu sidebar button">
         </button>    
       </div>
 
-      <!-- Nav links -->
+      <!-- Mobile navigation links -->
       <div class="flex flex-col items-center gap-3 pl-18 text-left xl:flex">
         <a href="#" class="nav-link sidenav-link">HOW IT WORKS</a>
         
-        <!-- Workflow dropdown -->
+        <!-- Workflow dropdown (always expanded on mobile) -->
         <button class="nav-link sidenav-link text-left">WORKFLOWS</button>
-        <!-- Dropdown menu -->
         <div class="flex flex-col gap-3 w-full pl-10">
           <a href="" class="nav-link sidenav-link">AUDIO CONSOLE</a>
           <a href="" class="nav-link sidenav-link">PHOTO CONSOLE</a>
@@ -120,12 +113,11 @@
         <a href="#" class="nav-link sidenav-link">SUPPORT</a>
         <a href="#" class="nav-link sidenav-link font-heading! border-0!">SHOP</a>          
       </div>
-
     </nav>
 
-    <!-- Shopping sidebar -->
+    <!-- Shopping cart sidebar (slides in from right) -->
     <div id="shopping-cart" class="shopping-sidebar transform translate-x-full">
-      <!-- [TOP] "< CONTINUE SHOPPING" -->
+      <!-- Cart header with continue shopping button -->
       <div class="shop-topping">
         <button id="close-cart-btn" class="flex items-center cursor-pointer">
           <img class="w-9" src="src/assets/icons/chevron-left.png" alt="close cart sidebar button">
@@ -133,35 +125,38 @@
         </button>
       </div>
 
-      <!-- [BUTTOM] Subtotal + Checkout (noto functional) -->
+      <!-- Cart footer with subtotal and checkout -->
       <div class="shop-topping px-7! pt-8!">
         <div class="flex flex-col gap-5 w-full text-center">
-          <!-- Subtotal -->
+          <!-- Subtotal display -->
           <div class="flex justify-between">
             <h3 class="font-semibold tracking-wider text-[15px]">SUBTOTAL</h3>
           </div>
           <!-- Checkout button -->
           <button class="w-full px-6 py-3 font-heading tracking-widest text-[15px] text-primary bg-accent rounded-full cursor-pointer transition hover:bg-hover">CHECKOUT</button>
-          <!-- Discount/Card code -->
+          <!-- Gift card/discount link -->
           <a href="" class="text-xs tracking-wider text-hover hover:underline">GIFT CARD OR DISCOUNT CODE</a>          
         </div>
 
       </div>
     </div>
 
+    <!-- Main content area -->
     <main>
-      <!-- Hero (set background img) -->
+      <!-- Hero section with background image and call-to-action -->
       <header class="hero-first flex flex-col justify-end items-center gap-11 h-[26rem] sm:h-[27.5rem] lg:gap-45 lg:h-[42rem]">
+          <!-- Hero text content -->
           <div class="flex flex-col justify-center items-center gap-3.5 max-w-lg mx-auto px-[8%] text-accent text-center sm:px-[1%]">
             <h1 class="hero-heading">A CONSOLE FOR EVERY WORKFLOW</h1>
             <p class="subtitle">Discover the perfect console for yours.</p>          
           </div>
+          <!-- Scroll down arrow -->
           <a href="#grid-featured">
             <img class="w-24 pb-2 cursor-pointer transition duration-500 hover:scale-[1.3]" src="src/assets/icons/chevron-down.png" alt="hero scroll down button">          
           </a>
       </header>
 
-      <!-- First grid -->
+      <!-- First product grid section -->
       <section id="grid-featured" class="grid grid-cols-1 justify-items-center p-5 lg:grid-cols-2 lg:w-[54rem] lg:mx-auto lg:pt-12 grid:w-[70rem] xl:w-[72rem]">        
       
         <!-- Grid items -->
@@ -304,7 +299,7 @@
 
       </section>
 
-      <!-- Mid-hero (set background image) -->
+      <!-- Second hero section with different background -->
       <section class="hero-second flex flex-col gap-14 h-[19.6rem] sm:h-[21rem] lg:h-[31.5rem]">
         <div class="flex flex-col justify-center items-center gap-3.5 max-w-sm mx-auto px-[8%] pt-11 text-primary text-center sm:px-0 sm:max-w-full ">
           <h1 class="hero-heading">CREATE YOUR OWN CONSOLE</h1>
@@ -312,7 +307,7 @@
         </div>
       </section>
 
-      <!-- Second grid -->
+      <!-- Second product grid section -->
       <section class="grid grid-cols-1 justify-items-center mx-auto p-5 lg:grid-cols-2 lg:w-[63rem] lg:pt-12 xl:grid-cols-3 xl:w-[73rem]">
 
         <!-- Grid items -->
@@ -649,16 +644,18 @@
       </section>
     </main>
 
+    <!-- Footer section -->
     <footer>
       <div class="footer-content">
-        <!-- MONOGRAM -->
+        <!-- Company information -->
         <div class="sm:order-1">
           <h4>MONOGRAM</h4>
           <div class="footer-item">
             <p>305 King St. W. <br> Suite 502 <br> Kitchener, ON <br> Canada</p>
           </div>
         </div>
-        <!-- QUICK LINKS -->
+
+        <!-- Quick navigation links -->
         <div class="sm:order-3 lg:order-2">
           <h4>QUICK LINKS</h4>
           <div class="footer-item">
@@ -668,7 +665,8 @@
             <a href="" class="">Download</a>
           </div>
         </div>
-        <!-- HELP -->
+        
+        <!-- Help and support links -->
         <div class="sm:order-4 lg:order-3">
           <h4>HELP</h4>
           <div class="footer-item">
@@ -677,7 +675,8 @@
             <a href="" class="">Shipping and Sales</a>          
           </div>
         </div>
-        <!-- INFORMATION -->
+        
+        <!-- Legal and company information -->
         <div class="sm:order-5 lg:order-4">
           <h4>INFORMATION</h4>
             <div class="footer-item">
@@ -689,16 +688,20 @@
               <a href="" class="">Press Kit</a>                
             </div>
         </div>
-        <!-- SUBSCRIBE -->
+        
+        <!-- Newsletter subscription and social media -->
         <div class="order-first col-span-2 w-96 sm:order-2 lg:order-5 lg:w-70 xl:w-86">
           <h4>SUBCRIBE TO MONOGRAM</h4>
           <div class="footer-item">
             <p>Master productivity with Creative Console and get all the latest Monogram news.</p>
+            
+            <!-- Email subscription form -->
             <form class="flex gap-3">
               <input class="px-2 py-1 text-xs border-accent border-2" type="text" name="email" placeholder="Email Address">
               <button class="w-fit px-6 py-[7px] font-heading tracking-widest text-xs text-primary bg-accent rounded-full cursor-pointer transition hover:bg-hover" type="submit">SUBMIT</button>
             </form>
-            <!-- Socials -->
+            
+            <!-- Social media links -->
             <div class="flex gap-2 mt-1">
               <!-- Instagram -->
               <a>
@@ -718,14 +721,17 @@
               </a>
             </div>
           </div>
+          
           <p class="hidden mt-6 sm:block">© Monogram 2025</p>  
         </div>
 
+        <!-- Copyright (mobile) -->
         <p class="order-last sm:hidden">© Monogram 2025</p>        
       </div>
 
     </footer>
 
+    <!-- Load JavaScript -->
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

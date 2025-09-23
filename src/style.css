@@ -1,251 +1,286 @@
-/* Tailwind import */
+/* ==============================================
+   IMPORTS AND FONTS
+   ============================================== */
+/* Import Tailwind CSS utilities */
 @import 'tailwindcss';
 
-/* Google font import */
+/* Import Google Font - Prompt */
 @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* ===================== */
-
-/* Global styles */
+/* ==============================================
+   DESIGN TOKENS / CSS CUSTOM PROPERTIES
+   ============================================== */
 @theme {
-    
-    /* Typography */
+    /* Typography Settings */
     --font-font: 'Prompt', sans-serif;
-    --font-weight-general: 400; /* For hero body and links */
-    --font-weight-light: 300; /* For general body (descriptions, footer links) */
-    --font-weight-heading: 600; /* For headings, titles, selected-links */
-
-    /* Colors */
-    --color-primary: #1A2456; /* Nav, product title, price */
-    --color-background: #f0efed; /* Main background color (off-white) */
-    --color-ribbon: #FF8D6B; /* Pre-order text */
-    --color-accent: #EFC2B3; /* Nav links, icons, hero text, footer text */
-    --color-hover: #E28F74; /* Hovered accent links */
-    --color-flavortext: #080b1b; /* Hovered primary links, 'PRE-ORDER' text, dropdown item text */
-
-    /* Breakpoints */
-    --breakpoint-grid: 70rem; /* ONLY for product grid when transitioning to cols-2! */
-
+    --font-weight-general: 400;     /* For hero body text and navigation links */
+    --font-weight-light: 300;       /* For general body text (descriptions, footer links) */
+    --font-weight-heading: 600;     /* For headings, titles, and selected links */
+    
+    /* Color Palette */
+    --color-primary: #1A2456;       /* Navigation, product titles, prices - main dark blue */
+    --color-background: #f0efed;    /* Main background color (warm off-white) */
+    --color-ribbon: #FF8D6B;        /* Pre-order badge color (coral/orange) */
+    --color-accent: #EFC2B3;        /* Navigation links, icons, hero text, footer text (warm beige) */
+    --color-hover: #E28F74;         /* Hover state for accent elements (darker coral) */
+    --color-flavortext: #080b1b;    /* Dark text for dropdowns and special elements */
+    
+    /* Responsive Breakpoints */
+    --breakpoint-grid: 70rem;       /* Special breakpoint for product grid layout transitions */
 }
 
-/* ===================== */
-
-/* Shared classes */
+/* ==============================================
+   BASE STYLES AND LAYOUT
+   ============================================== */
 @layer utilities {
-
-    /* ========== GENERAL ========== */
+    /* Global HTML and Body Settings */
     html {
-        scroll-behavior: smooth;
+        scroll-behavior: smooth; /* Smooth scrolling for anchor links */
     }
+    
     body {
-    @apply 
-        overflow-x-hidden
-        min-h-screen box-border
-        m-0 p-0 
-        font-font text-base leading-normal 
-        bg-background;
+        @apply 
+            overflow-x-hidden          /* Prevent horizontal scrolling */
+            min-h-screen box-border    /* Full viewport height with proper box model */
+            m-0 p-0                    /* Reset default margins and padding */
+            font-font text-base leading-normal  /* Apply custom font and typography */
+            bg-background;           /* Set main background color */
     }
+    
+    /* Main content area */
     main {
-        @apply
-        w-full min-h-screen;
+        @apply w-full min-h-screen;
     }
+    
+    /* Footer styling */
     footer {
         @apply
-        px-5 pt-10 pb-20
-        font-light text-sm text-accent
-        bg-primary
-        sm:px-0
+            px-5 pt-10 pb-20          /* Generous padding for footer content */
+            font-light text-sm text-accent  /* Light font weight and accent color */
+            bg-primary                 /* Dark background */
+            sm:px-0;                  /* Remove side padding on larger screens */
     }
 
-    /* ========== HERO ========== */
-    /* Hero images */
+/* ==============================================
+   HERO SECTIONS
+   ============================================== */
+    
+    /* Hero Background Images */
     .hero-first {
         @apply
-        bg-cover bg-center bg-no-repeat bg-black/70 bg-blend-darken
-        bg-[url(src/assets/images/pexels-cottonbro-10598788.jpg)];
+            bg-cover bg-center bg-no-repeat        /* Cover entire area, centered */
+            bg-black/70 bg-blend-darken           /* Dark overlay for text readability */
+            bg-[url(src/assets/images/pexels-cottonbro-10598788.jpg)];  /* Main hero background */
     }
+    
     .hero-second {
         @apply
-        bg-cover bg-center bg-no-repeat
-        bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)]
-        lg:bg-[center_75%];
+            bg-cover bg-center bg-no-repeat       /* Same background treatment */
+            bg-[url(src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)]  /* Secondary hero background */
+            lg:bg-[center_75%];                   /* Adjust focal point on larger screens */
     }
-    /* Hero headings */
+    
+    /* Hero Typography */
     .title {
         @apply
-        font-heading text-sm tracking-[0.12em]
-        cursor-pointer
-        hover:text-hover;
+            font-heading text-sm tracking-[0.12em]  /* Bold, spaced title text */
+            cursor-pointer                           /* Indicate interactivity */
+            hover:text-hover;                       /* Color change on hover */
     }
+    
     .hero-heading {
         @apply
-        font-heading tracking-wider leading-10
-        text-[2.2rem] sm:text-[2.3rem] lg:text-[2.5rem] lg:leading-11;
+            font-heading tracking-wider leading-10              /* Bold, well-spaced heading */
+            text-[2.2rem] sm:text-[2.3rem] lg:text-[2.5rem]    /* Responsive font sizes */
+            lg:leading-11;                                      /* Improved line height on large screens */
     }
-    /* Hero subtitle */
+    
     .subtitle {
         @apply
-        font-light 
-        sm:text-lg;
+            font-light                /* Light weight for subtlety */
+            sm:text-lg;              /* Slightly larger on tablet+ */
     }
 
-    /* ========== LINKS ========== */
-    /* Links */
+/* ==============================================
+   NAVIGATION AND LINKS
+   ============================================== */
+    
+    /* General Navigation Links */
     .nav-link {
         @apply
-        font-light tracking-[0.12rem] text-xs
-        hover:text-hover;
+            font-light tracking-[0.12rem] text-xs  /* Light, spaced navigation text */
+            hover:text-hover;                       /* Hover color change */
     }
-    /* Menu sidenav links */
+    
+    /* Mobile Sidebar Navigation Links */
     .sidenav-link {
         @apply
-        w-full
-        pb-3
-        text-sm
-        border-b-2 border-[#141c47];
+            w-full pb-3                    /* Full width with bottom padding */
+            text-sm                        /* Slightly larger for mobile */
+            border-b-2 border-[#141c47];  /* Bottom border for separation */
     }
-    /* Dropdown triangles */
+    
+    /* Dropdown Arrow Indicator */
     .dropdown-icon {
         @apply
-        after:ml-[.255em]
-        after:align-[.255em]
-        after:inline-block
-        after:h-0
-        after:w-0
-        after:content-['']
-        after:border-t-[.3em]
-        after:border-l-[.3em]
-        after:border-r-[.3em]
-        after:border-b-0
-        after:border-t-current
-        after:border-l-transparent
-        after:border-r-transparent;
+            after:ml-[.255em] after:align-[.255em]        /* Spacing and alignment */
+            after:inline-block after:h-0 after:w-0        /* Create triangle shape */
+            after:content-['']                             /* Empty content for pseudo-element */
+            after:border-t-[.3em] after:border-l-[.3em]   /* Triangle borders */
+            after:border-r-[.3em] after:border-b-0        
+            after:border-t-current                         /* Use current text color */
+            after:border-l-transparent after:border-r-transparent;  /* Transparent sides */
     }
+    
+    /* Dropdown Menu Items */
     .dropdown-link {
         @apply
-        w-full h-full
-        px-6 py-1.5
-        font-light tracking-[0.15rem] text-sm text-flavortext whitespace-nowrap
-        hover:bg-gray-200
+            w-full h-full px-6 py-1.5              /* Full width with padding */
+            font-light tracking-[0.15rem] text-sm  /* Light, spaced text */
+            text-flavortext whitespace-nowrap      /* Dark color, no wrapping */
+            hover:bg-gray-200;                     /* Light background on hover */
     }
 
-    /* ========== NAVIGATION ========== */
-    /* Navigational top bar */
+/* ==============================================
+   SIDEBAR NAVIGATION COMPONENTS
+   ============================================== */
+    
+    /* Main Navigation Bar */
     .topnav {
         @apply
-        flex justify-between items-center fixed z-40 
-        top-1.5 left-1.5 right-1.5 pr-4 
-        text-accent 
-        bg-primary 
-        sm:top-3.5 sm:left-3.5 sm:right-3.5;
+            flex justify-between items-center fixed z-40   /* Flex layout, high z-index */
+            top-1.5 left-1.5 right-1.5 pr-4              /* Positioning with margins */
+            text-accent bg-primary                         /* Color scheme */
+            sm:top-3.5 sm:left-3.5 sm:right-3.5;         /* Larger margins on bigger screens */
     }
-    /* Mobile menu sidenav */
+    
+    /* Mobile Menu Sidebar */
     .mobile-menu {
         @apply
-        flex-col gap-3 z-50 fixed
-        top-0 left-0 min-w-[22rem] h-full p-2
-        text-accent 
-        bg-primary
-        transition-transform duration-300 ease-in-out
-        sm:p-5;
+            flex-col gap-3 z-50 fixed                     /* Vertical layout, highest z-index */
+            top-0 left-0 min-w-[22rem] h-full p-2        /* Full height, minimum width */
+            text-accent bg-primary                         /* Color scheme */
+            transition-transform duration-300 ease-in-out  /* Smooth slide animation */
+            sm:p-5;                                        /* More padding on larger screens */
     }
-    /* Overlay for mobile menu */
+    
+    /* Background Overlay for Sidebars */
     .overlay {
         @apply
-        fixed z-40 
-        inset-0 
-        transition-opacity duration-400;
+            fixed z-40 inset-0                    /* Cover entire screen */
+            transition-opacity duration-400;      /* Fade in/out animation */
     }
 
-    /* ========== PRDOUCTS ========== */
-    /* Product name */
+/* ==============================================
+   PRODUCT DISPLAY COMPONENTS
+   ============================================== */
+    
+    /* Product Name Styling */
     h2 {
         @apply
-        font-heading tracking-[0.12em]
-        sm:text-lg;
+            font-heading tracking-[0.12em]  /* Bold, spaced product names */
+            sm:text-lg;                     /* Larger on tablet+ */
     }
-    /* Pre-order ribbon */
+    
+    /* Pre-order Badge */
     .pre-order {
         @apply
-        absolute z-30 
-        top-5 right-0 px-3.5 py-[5px] 
-        font-heading tracking-widest text-xs text-flavortext 
-        bg-ribbon;
+            absolute z-30 top-5 right-0     /* Positioned in top-right corner */
+            px-3.5 py-[5px]                 /* Padding for badge */
+            font-heading tracking-widest text-xs  /* Bold, widely spaced text */
+            text-flavortext bg-ribbon;      /* Dark text on colored background */
     }
-    /* Product description */
+    
+    /* Product Description Text */
     .prod-desc {
         @apply
-        font-light text-xs
-        sm:text-sm;
+            font-light text-xs    /* Light, small descriptive text */
+            sm:text-sm;          /* Slightly larger on tablet+ */
     }
+    
+    /* Sold Out Indicator */
     .sold-out {
         @apply
-        font-light text-sm text-gray-500;
+            font-light text-sm text-gray-500;  /* Muted styling for unavailable items */
     }
+    
+    /* Product Price Display */
     .prod-price {
         @apply
-        font-light text-[15px] text-primary
+            font-light text-[15px] text-primary;  /* Clean price display */
     }
-    /* Product image hover */
+    
+    /* Product Image Hover Effect */
     .image-hover {
         @apply
-        absolute 
-        w-full top-0 left-0 
-        opacity-0 transition-opacity 
-        group-hover:opacity-100;
+            absolute w-full top-0 left-0           /* Overlay the main image */
+            opacity-0 transition-opacity          /* Start hidden, fade in */
+            group-hover:opacity-100;              /* Show on parent hover */
     }
-    /* Product shop button */
+    
+    /* Shop Now Button (appears on hover) */
     .shop-btn {
         @apply
-        absolute
-        w-max right-0 px-4 py-1.5
-        font-heading text-xs text-white
-        bg-primary rounded-full
-        opacity-0 transition-opacity
-        group-hover:opacity-100
+            absolute w-max right-0 px-4 py-1.5    /* Positioned button */
+            font-heading text-xs text-white       /* Bold white text */
+            bg-primary rounded-full                /* Dark background, rounded */
+            opacity-0 transition-opacity          /* Start hidden */
+            group-hover:opacity-100;              /* Show on product hover */
     }
 
-    /* ========== SHOP SIDEBAR ========== */
+/* ==============================================
+   SHOPPING CART SIDEBAR
+   ============================================== */
+    
+    /* Shopping Cart Sidebar Container */
     .shopping-sidebar {
         @apply
-        flex flex-col justify-between fixed z-50
-        min-w-[22rem] h-full top-0 right-0
-        text-white
-        bg-white
-        transition-transform duration-300 ease-in-out
+            flex flex-col justify-between fixed z-50     /* Vertical layout, high z-index */
+            min-w-[22rem] h-full top-0 right-0          /* Full height, slides from right */
+            text-white bg-white                          /* White background */
+            transition-transform duration-300 ease-in-out;  /* Smooth slide animation */
     }
+    
+    /* Cart Header/Footer Sections */
     .shop-topping {
         @apply
-        px-2 py-5
-        bg-primary
+            px-2 py-5      /* Padding for cart sections */
+            bg-primary;    /* Dark background */
     }
 
-    /* ========== FOOTER ========== */
-    /* Footer */
+/* ==============================================
+   FOOTER COMPONENTS
+   ============================================== */
+    
+    /* Footer Section Headings */
     h4 {
         @apply
-        mb-4
-        font-heading tracking-wider text-xs
+            mb-4 font-heading tracking-wider text-xs;  /* Bold, spaced section headers */
     }
-    footer p, a {
+    
+    /* Footer Text and Links */
+    footer p, footer a {
         @apply
-        text-xs
-        sm:text-[13px]
+            text-xs sm:text-[13px];  /* Small text, slightly larger on tablet+ */
     }
+    
+    /* Footer Link Hover Effects */
     footer a:hover {
         @apply
-        text-hover underline
+            text-hover underline;    /* Color change and underline on hover */
     }
+    
+    /* Footer Layout Grid */
     .footer-content {
         @apply
-        grid grid-cols-2 gap-10
-        w-full
-        sm:grid-cols-3 sm:justify-center sm:px-[6%]
-        lg:flex lg:gap-14 xl:gap-25
+            grid grid-cols-2 gap-10 w-full                    /* 2-column grid on mobile */
+            sm:grid-cols-3 sm:justify-center sm:px-[6%]       /* 3-column on tablet */
+            lg:flex lg:gap-14 xl:gap-25;                      /* Horizontal flex on desktop */
     }
+    
+    /* Footer Section Content */
     .footer-item {
         @apply
-        flex flex-col gap-2.5
+            flex flex-col gap-2.5;  /* Vertical spacing between footer items */
     }
-
 }

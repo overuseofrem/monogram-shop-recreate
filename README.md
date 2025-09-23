@@ -75,7 +75,7 @@ This is a **WIP**! 🤫
 - [x] Implement currency changes
 
 #### Final stuff ✨
-- [ ] Final code cleanup and commenting
+- [x] Final code cleanup and commenting
 - [ ] Deploy the site to Github Pages
 - [ ] Add the live site link to the top of the README
 
