@@ -53,7 +53,7 @@
           </button>
 
           <!-- Shopping icon -->
-          <button class="">
+          <button id="open-cart-btn">
             <img class="w-8 cursor-pointer" src="src/assets/icons/shopping-bag.png" alt="shopping cart button">
           </button>
 
@@ -124,26 +124,28 @@
     </nav>
 
     <!-- Shopping sidebar -->
-    <div class="hidden">
+    <div id="shopping-cart" class="shopping-sidebar transform translate-x-full">
       <!-- [TOP] "< CONTINUE SHOPPING" -->
-      <div class="">
-        <button class="">
-          <img src="src/assets/icons/chevron-left.png" alt="close cart sidebar button">
-          <span>CONTINUE SHOPPING</span>
+      <div class="shop-topping">
+        <button id="close-cart-btn" class="flex items-center cursor-pointer">
+          <img class="w-9" src="src/assets/icons/chevron-left.png" alt="close cart sidebar button">
+          <span class="font-semibold tracking-wider text-[15px]">CONTINUE SHOPPING</span>
         </button>
       </div>
 
       <!-- [BUTTOM] Subtotal + Checkout (noto functional) -->
-      <div class="">
-        <!-- Subtotal -->
-        <div class="">
-          <h3>SUBTOTAL</h3>
-          <span>69</span>
+      <div class="shop-topping px-7! pt-8!">
+        <div class="flex flex-col gap-5 w-full text-center">
+          <!-- Subtotal -->
+          <div class="flex justify-between">
+            <h3 class="font-semibold tracking-wider text-[15px]">SUBTOTAL</h3>
+          </div>
+          <!-- Checkout button -->
+          <button class="w-full px-6 py-3 font-heading tracking-widest text-[15px] text-primary bg-accent rounded-full cursor-pointer transition hover:bg-hover">CHECKOUT</button>
+          <!-- Discount/Card code -->
+          <a href="" class="text-xs tracking-wider text-hover hover:underline">GIFT CARD OR DISCOUNT CODE</a>          
         </div>
-        <!-- Checkout button -->
-        <button class="">CHECKOUT</button>
-        <!-- Discount/Card code -->
-        <a href="" class="">GIFT CARD OR DISCOUNT CODE</a>
+
       </div>
     </div>
 

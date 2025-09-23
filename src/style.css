@@ -30,23 +30,6 @@
 
 /* ===================== */
 
-/*
-|-------------------------------------------------------------------------------
-| Tailwind Class Order Cheat Sheet
-|-------------------------------------------------------------------------------
-|
-| 1.  Layout/Positioning: flex, grid, block, absolute, relative, z-index
-| 2.  Box Model: box-sizing, width, height, min/max
-| 3.  Spacing: margin (m-), padding (p-)
-| 4.  Typography: font, text, leading, tracking
-| 5.  Backgrounds: bg-color, bg-gradient
-| 6.  Borders/Effects: border, rounded, shadow, opacity
-| 7.  Interactivity: cursor, transition, transform
-| 8.  SVG: fill, stroke
-| 9.  States/Breakpoints: hover:, focus:, sm:, md:
-|
-*/
-
 /* Shared classes */
 @layer utilities {
 
@@ -222,6 +205,22 @@
         group-hover:opacity-100
     }
 
+    /* ========== SHOP SIDEBAR ========== */
+    .shopping-sidebar {
+        @apply
+        flex flex-col justify-between fixed z-50
+        min-w-[22rem] h-full top-0 right-0
+        text-white
+        bg-white
+        transition-transform duration-300 ease-in-out
+    }
+    .shop-topping {
+        @apply
+        px-2 py-5
+        bg-primary
+    }
+
+    /* ========== FOOTER ========== */
     /* Footer */
     h4 {
         @apply
