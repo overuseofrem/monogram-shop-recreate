@@ -70,13 +70,13 @@
         @apply
             bg-cover bg-center bg-no-repeat        /* Cover entire area, centered */
             bg-black/70 bg-blend-darken           /* Dark overlay for text readability */
-            bg-[url(/assets/images/pexels-cottonbro-10598788.jpg)];  /* Main hero background */
+            bg-[url(/src/assets/images/pexels-cottonbro-10598788.jpg)];  /* Main hero background */
     }
     
     .hero-second {
         @apply
             bg-cover bg-center bg-no-repeat       /* Same background treatment */
-            bg-[url(/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)]  /* Secondary hero background */
+            bg-[url(/src/assets/images/joyce-g-Jqv4HkLWc6g-unsplash.jpg)]  /* Secondary hero background */
             lg:bg-[center_75%];                   /* Adjust focal point on larger screens */
     }
     
