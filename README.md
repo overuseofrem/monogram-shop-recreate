@@ -71,8 +71,8 @@ This is a **WIP**! 🤫
 #### Javascript 🌚
 - [x] Implement the mobile menu sidebar
 - [x] Implement dropdowns
-- [ ] Implement the cart sidebar
-- [ ] Implement currency changes
+- [x] Implement the cart sidebar
+- [x] Implement currency changes
 
 #### Final stuff ✨
 - [ ] Final code cleanup and commenting
