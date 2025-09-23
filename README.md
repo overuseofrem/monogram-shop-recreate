@@ -2,7 +2,7 @@
 
 A responsive front-end recreation of the [Monogram](https://monogramcc.com/shop/) website shop page. This is a self-directed challenge from [Frontend Practice](https://www.frontendpractice.com/projects/monogram).
 
-👉 *Not yet...*
+👉 [Check out the live site 🍘](https://overuseofrem.github.io/monogram-shop-recreate/)
 
 <br>
 
@@ -45,7 +45,7 @@ The goal is to recerate the structure, appearance, and behavior of the **Monogra
 
 ## ⏳ Status
 
-This is a **WIP**! 🤫
+This is **completed!** 🍣
 
 #### Page structure (HTML) 🏗️
 - [x] Build the header
@@ -76,8 +76,8 @@ This is a **WIP**! 🤫
 
 #### Final stuff ✨
 - [x] Final code cleanup and commenting
-- [ ] Deploy the site to Github Pages
-- [ ] Add the live site link to the top of the README
+- [x] Deploy the site to Github Pages
+- [x] Add the live site link to the top of the README
 
 <br>
 
