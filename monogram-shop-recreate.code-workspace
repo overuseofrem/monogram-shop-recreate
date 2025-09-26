@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../vtm-projects/schrecknet-lite"
+		},
+		{
+			"path": "../../OJT/rcdok-ui-sandbox"
+		},
+		{
+			"path": "../../OJT/HRIS-RCDOK"
+		},
+		{
+			"path": "../monstercat-page-recreate"
+		}
+	],
+	"settings": {}
+}
